@@ -1,3 +1,16 @@
 <h1>Sign up for Moneytor</h1>
 
+<%= form_tag @user do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <br>
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+  <br>
+  <%= f.label :password_confirmation %>
+  <%= f.text_field :password_confirmation %>
+  <br/>
+  <%= f.submit %>
+<% end %>
+
 
