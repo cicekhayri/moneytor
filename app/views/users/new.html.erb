@@ -1,6 +1,13 @@
 <h1>Sign up for Moneytor</h1>
 
 <%= form_tag @user do |f| %>
+  <% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <%= f.label :email %>
   <%= f.text_field :email %>
   <br>
