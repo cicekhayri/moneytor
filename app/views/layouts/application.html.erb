@@ -12,9 +12,14 @@
 
     <div class="header">
       <ul class="nav nav-pills pull-right">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <% if current_user %>
+          <li><a href="Dashbord">Dashbord</a></li>
+          <li><a href="#">Profile</a></li>
+          <li><%= link_to "Logout", logout_path %></li>
+        <% else %>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Login", login_path %></li>
+        <% end %>
       </ul>
       <h1 class="text-muted">Moneytor</h1>
     </div>
