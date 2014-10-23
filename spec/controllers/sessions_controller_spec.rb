@@ -15,4 +15,11 @@ RSpec.describe SessionsController, :type => :controller do
       expect(session[:user_id]).to eq(user.id)
     end
   end
+
+  describe "DELETE #destroy" do
+    it "should destroy the session and logout" do
+      get :destroy
+      expect(session[:user_id]).to eq(nil)
+    end
+  end
 end
