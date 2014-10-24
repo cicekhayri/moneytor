@@ -58,4 +58,11 @@ RSpec.describe UsersController, :type => :controller do
       expect(response).to render_template :edit
     end
   end
+
+  describe "#destroy action" do
+    it "should delete the user and redirect to the root of the app" do
+      delete :destroy, id: @user.id
+      expect(response.status).to eq(302)
+    end
+  end
 end
