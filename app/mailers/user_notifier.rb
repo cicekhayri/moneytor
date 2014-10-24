@@ -1,5 +1,5 @@
 class UserNotifier < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "no-reply@hoshilab.com"
 
   def signup_user(user)
     @user = user
