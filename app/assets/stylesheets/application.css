@@ -30,6 +30,23 @@ body {
   height: 100%;
 }
 
+.col-lg-4 img {
+  width: 100px;
+  height: 100px;
+  margin-left: 80px;
+}
+
+.col-lg-4 h3 {
+  text-align: center;
+}
+
+.jumbotron {
+  background-color: #fff;
+}
+
+.jumbotron h1 {
+  font-size: 55px;
+}
 /* Wrapper for page content to push down footer */
 #wrap {
   min-height: 100%;
