@@ -14,15 +14,20 @@ RSpec.describe CategoriesController, :type => :controller do
   end
 
   describe "#create action" do
-    it "should response with 302" do
+    it "should response with 200" do
       post :create, category: Category.new.attributes
-      expect(response.status).to eq(302)
+      expect(response.status).to eq(200)
     end
 
     it "should save to the database if successfull" do
       post :create, category: { title: "Category1" }
       category = Category.last
       expect(category.title).to eq("Category1")
+    end
+
+    it "should not save to the database if the value is nil" do
+      post :create, category: { title: '' }
+      expect(response).to render_template :new
     end
   end
 end
