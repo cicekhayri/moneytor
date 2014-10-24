@@ -30,4 +30,12 @@ RSpec.describe UsersController, :type => :controller do
       expect(response).to render_template :new
     end
   end
+
+  describe "#show action" do
+    it "should have status 200" do
+      get :show, id: @user.id
+
+      expect(response).to render_template :show
+    end
+  end
 end

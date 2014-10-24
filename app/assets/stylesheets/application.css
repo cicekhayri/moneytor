@@ -74,3 +74,7 @@ body {
 .header {
   margin-bottom: 50px;
 }
+
+h1 a:hover {
+  text-decoration: none;
+}
