@@ -1,26 +1,3 @@
 <h3>Sign up for Moneytor</h3>
 
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email, class: "form-control", placeholder: "Enter email" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.text_field :password, class: "form-control", placeholder: "Enter password" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.text_field :password_confirmation, class: "form-control", placeholder: "Enter password again" %>
-  </div>
-  <%= f.submit class: "btn btn-success" %>
-<% end %>
-
-
+<%= render 'form' %>
