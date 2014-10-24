@@ -38,4 +38,11 @@ RSpec.describe UsersController, :type => :controller do
       expect(response.status).to render_template :edit
     end
   end
+
+  describe "#update action" do
+    it "should redirect to dashbord when success" do
+      put :update, { id: @user.id, user: @user.attributes }
+      expect(response.status).to eq(302)
+    end
+  end
 end
