@@ -11,6 +11,7 @@
   <div class="container">
 
     <div class="header">
+
       <ul class="nav nav-pills pull-right">
         <% if current_user %>
           <li><%= link_to "Dashbord", root_path %></li>
@@ -23,7 +24,10 @@
           <li><%= link_to "Login", login_path %></li>
         <% end %>
       </ul>
-      <h1 class="text-muted"><%= link_to 'Moneytor', root_path %></h1>
+            <h1 class="text-muted">
+            <img src="/assets/logo.png" height="90px" width="100px">
+          </h1>
+
     </div>
   </div>
 
