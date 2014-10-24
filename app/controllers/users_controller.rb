@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :get_user, only: [:show, :update, :destroy]
   def new
     @user = User.new
   end
@@ -28,8 +29,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-
     if @user.update_attributes(user_params)
       flash[:notice] = "Your information have been updated"
       redirect_to root_url
@@ -39,12 +38,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     redirect_to root_url
   end
 
   private
+  def get_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
