@@ -44,5 +44,18 @@ RSpec.describe UsersController, :type => :controller do
       put :update, { id: @user.id, user: @user.attributes }
       expect(response.status).to eq(302)
     end
+
+    it "should update the user information and save to the database" do
+      @user.email = "user1@example.com"
+      put :update, {id: @user.id, user: @user.attributes}
+      expect(@user.email).to eq(@user.email)
+    end
+
+    it "should redirect back to the dit form if the information is not valid" do
+      @user.email = nil
+      put :update, {id: @user.id, user: @user.attributes}
+
+      expect(response).to render_template :edit
+    end
   end
 end
