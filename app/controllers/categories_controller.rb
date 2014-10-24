@@ -1,5 +1,9 @@
 class CategoriesController < ApplicationController
   before_filter :get_category, only: [:show, :edit, :update, :destroy]
+  
+  def index
+    @category = Category.all
+  end
 
   def new
     @category = Category.new
