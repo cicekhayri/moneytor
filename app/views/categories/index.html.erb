@@ -1,3 +1,14 @@
-<% @categories.each do |category| %>
- <%= category.title %>
-<%end %>
+<%= render 'nav' %>
+<h3>Categories</h3>
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <% @categories.each do |category| %>
+        <td><%= category.title %></td>
+        <td><%= link_to "Edit", edit_category_path(category) %></td>
+      <%end %>
+    </tr>
+  </tbody>
+</table>
+
+
