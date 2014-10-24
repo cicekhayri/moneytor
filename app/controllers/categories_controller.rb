@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_params)
+    @category = Category.new(category_params.merge(user_id: current_user.id))
 
     if @category.save
       flash[:notice] = "Category saved successfully"

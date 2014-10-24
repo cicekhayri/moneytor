@@ -1,0 +1,16 @@
+<%= form_for @category do |f| %>
+  <% if @category.errors.any? %>
+    <ul>
+      <% @category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control", placeholder: "Shoes" %>
+  </div>
+  <%= f.submit class: "btn btn-success" %>
+  
+<% end %>

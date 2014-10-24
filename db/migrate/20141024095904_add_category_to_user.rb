@@ -1,5 +1,5 @@
 class AddCategoryToUser < ActiveRecord::Migration
   def change
-    add_index :category, :user_id
+    add_column :categories, :user_id, :integer
   end
 end
