@@ -1,8 +1,9 @@
 class CategoriesController < ApplicationController
   before_filter :get_category, only: [:show, :edit, :update, :destroy]
-  
+  before_filter :authorize 
+
   def index
-    @category = Category.all
+    @categories = Category.where(user_id: current_user.id)
   end
 
   def new
