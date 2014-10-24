@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
+      UserNotifier.signup_user(@user).deliver
       flash[:notice] = "Thanks for signing up"
       redirect_to root_url
     else
