@@ -28,6 +28,11 @@ RSpec.describe CategoriesController, :type => :controller do
   end
 
   describe "#create action" do
+    before do
+      @user = FactoryGirl.create(:user)
+      login(@user)
+    end
+
     it "should response with 200" do
       post :create, category: Category.new.attributes
       expect(response.status).to eq(200)
@@ -37,6 +42,7 @@ RSpec.describe CategoriesController, :type => :controller do
       post :create, category: { title: "Category1" }
       category = Category.last
       expect(category.title).to eq("Category1")
+      expect(category.user_id).to eq(@user.id)
     end
 
     it "should not save to the database if the value is nil" do
