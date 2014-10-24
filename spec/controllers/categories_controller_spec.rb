@@ -33,7 +33,7 @@ RSpec.describe CategoriesController, :type => :controller do
 
   describe "#show action" do
     it 'should response with 200' do
-      get :show, category: @category.id
+      get :show, id: @category.id
 
       expect(response).to render_template :show
     end
