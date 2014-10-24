@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   before_filter :authorize 
 
   def index
-    @categories = Category.where(user_id: current_user.id)
+    @categories = Category.order(id: :desc).where(user_id: current_user.id)
   end
 
   def new
