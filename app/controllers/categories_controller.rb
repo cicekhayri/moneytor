@@ -30,6 +30,11 @@ class CategoriesController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @category.destroy
+    redirect_to root_url
+  end
   
   private
   def get_category
