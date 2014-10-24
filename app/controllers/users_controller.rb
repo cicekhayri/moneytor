@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   before_filter :get_user, only: [:edit, :show, :update, :destroy]
   def new
-    @user = User.new
+    if !current_user
+      @user = User.new
+    else
+      redirect_to root_path
+    end
   end
 
   def show
