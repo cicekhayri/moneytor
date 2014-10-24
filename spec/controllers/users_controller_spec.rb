@@ -31,11 +31,11 @@ RSpec.describe UsersController, :type => :controller do
     end
   end
 
-  describe "#show action" do
+  describe "#edit action" do
     it "should have status 200" do
-      get :show, id: @user.id
+      get :edit, id: @user.id
 
-      expect(response).to render_template :show
+      expect(response.status).to render_template :edit
     end
   end
 end
