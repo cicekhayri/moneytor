@@ -42,7 +42,13 @@ RSpec.describe CategoriesController, :type => :controller do
   describe "#update action" do
     it "should redirect if update successfull" do
       put :update, id: @category.id, category: { title: "category1" }
-      expect(response).to redirect_to(category_path(category))
+      expect(response).to redirect_to(category_path(@category))
+    end
+
+    it "should not update if not valid title" do
+      @category.title = nil
+      put :update, {id: @category.id, category: @category.attributes }
+      expect(response).to render_template :edit
     end
   end
 end

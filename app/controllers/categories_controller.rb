@@ -1,10 +1,14 @@
 class CategoriesController < ApplicationController
-  before_filter :get_category, only: [:show, :update, :destroy]
+  before_filter :get_category, only: [:show, :edit, :update, :destroy]
 
   def new
+    @category = Category.new
   end
 
   def show
+  end
+
+  def edit
   end
 
   def create
@@ -15,6 +19,15 @@ class CategoriesController < ApplicationController
       redirect_to root_url
     else
       render :new
+    end
+  end
+
+  def update
+    if @category.update_attributes(category_params)
+      flash[:notice] = "Category successfully updated"
+      redirect_to category_path(@category)
+    else
+      render :edit
     end
   end
   
