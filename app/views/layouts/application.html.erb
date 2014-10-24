@@ -14,7 +14,7 @@
       <ul class="nav nav-pills pull-right">
         <% if current_user %>
           <li><a href="Dashbord">Dashbord</a></li>
-          <li><a href="#">Profile</a></li>
+          <li><%= link_to "Profile", edit_user_path(current_user) %></li>
           <li><%= link_to "Logout", logout_path %></li>
         <% else %>
           <li><%= link_to "Home", root_path %></li>

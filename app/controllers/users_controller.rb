@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :get_user, only: [:show, :update, :destroy]
+  before_filter :get_user, only: [:edit, :show, :update, :destroy]
   def new
     @user = User.new
   end
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
       flash[:notice] = "Thanks for signing up"
       redirect_to root_url
     else
