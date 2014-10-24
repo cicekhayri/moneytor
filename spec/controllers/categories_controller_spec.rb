@@ -1,5 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe CategoriesController, :type => :controller do
+  before do
+    @category = FactoryGirl.create(:category)
+  end
 
+  describe "#new action" do
+    it "should response with 200" do
+      get :new
+
+      expect(response.status).to eq(200)
+    end
+  end
 end
