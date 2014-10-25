@@ -3,7 +3,11 @@ class PurchasesController < ApplicationController
   before_filter :authorize
 
   def index
-    @purchases = Purchase.order(id: :desc).where(user_id: current_user.id)
+    if params[:search]
+			@purchases = Purchase.search(params[:search]).where(user_id: current_user.id)
+    else
+      @purchases = Purchase.order(id: :desc).where(user_id: current_user.id)
+    end
   end
 
   def new
