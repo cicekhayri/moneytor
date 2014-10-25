@@ -33,6 +33,11 @@ class PurchasesController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @purchase.destroy
+    redirect_to root_url
+  end
   
   private
   def get_purchase
