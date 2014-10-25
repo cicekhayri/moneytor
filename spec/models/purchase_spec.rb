@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Purchase, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should presence product name" do
+    purchase = FactoryGirl.build(:purchase)
+    purchase.product = nil
+    expect(purchase).not_to be_valid
+  end
 end

@@ -21,14 +21,9 @@ ActiveRecord::Schema.define(version: 20141025151251) do
   end
 
   create_table "purchases", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "recipes", force: true do |t|
     t.string   "product"
     t.date     "purchase_date"
-    t.integer  "amount"
+    t.float    "amount"
     t.string   "store_name"
     t.datetime "created_at"
     t.datetime "updated_at"

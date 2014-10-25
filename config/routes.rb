@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   
   resources :users
-  resources :recipes
+  resources :purchases
   resources :categories
   resources :sessions, only: [:create]
 
