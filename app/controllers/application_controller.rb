@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize
-    if !current_user
+    if current_user.id != @user.id
       redirect_to root_url
     end
   end
