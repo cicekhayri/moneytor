@@ -41,4 +41,11 @@ RSpec.describe RecipesController, :type => :controller do
       expect(response).to render_template :new
     end
   end
+  
+  describe "#show action" do
+    it "should response with status 200" do
+      get :show, id: @recipe.id
+      expect(response).to render_template :show
+    end
+  end
 end
