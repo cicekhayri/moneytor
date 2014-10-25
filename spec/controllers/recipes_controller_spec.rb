@@ -7,4 +7,16 @@ RSpec.describe RecipesController, :type => :controller do
       expect(response.status).to eq(200)
     end
   end
+
+  describe "#index action" do
+    it "should response with status 200" do
+      get :index
+      expect(response.status).to eq(200)
+    end
+
+    it "should render the index view template" do
+      get :index
+      expect(response).to render_template("index")
+    end
+  end
 end
