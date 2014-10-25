@@ -3,7 +3,7 @@ class PurchasesController < ApplicationController
   before_filter :authorize
 
   def index
-    @purchase = Purchase.all
+    @purchase = Purchase.order(id: :desc).where(user_id: current_user.id)
   end
 
   def new
@@ -17,7 +17,7 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    @purchase = Purchase.new(purchase_params)
+    @purchase = Purchase.new(purchase_params.merge(user_id: current_user.id))
 
     if @purchase.save
       flash[:notice] = "Purchase successfully added"
