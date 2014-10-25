@@ -48,4 +48,18 @@ RSpec.describe PurchasesController, :type => :controller do
       expect(response).to render_template :show
     end
   end
+
+
+  describe "#update action" do
+    it "should redirect if update successfull" do
+      put :update, id: @purchase, purchase: { product: "test" }
+      expect(response).to redirect_to(purchase_path(@putchase))
+    end
+
+    it "should not update if product name is empty" do
+      put :update, id: @purchase, purchase: { product: nil }
+      expect(response).to render_template('edit')
+    end
+
+  end
 end
