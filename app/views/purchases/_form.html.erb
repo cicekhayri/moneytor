@@ -1,0 +1,26 @@
+<%= form_for @purchase do |f| %>
+  <% if @purchase.errors.any? %>
+    <ul>
+      <% @purchase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :product %>
+    <%= f.text_field :product, class: "form-control", placeholder: "Shoes" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :purchase_date %>
+    <%= f.date :purchase_date, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :amount %>
+    <%= f.text_field :amount, class: "form-control", placeholder: "10.00" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :store_name %>
+    <%= f.text_field :store_name, class: "form-control", placeholder: "Store name" %>
+  </div>
+  <%= f.submit class: "btn btn-success" %>
+<% end %>
