@@ -60,6 +60,12 @@ RSpec.describe PurchasesController, :type => :controller do
       put :update, id: @purchase, purchase: { product: nil }
       expect(response).to render_template('edit')
     end
+  end
 
+  describe "#destroy action" do
+    it "should destroy the purchase" do
+      delete :destroy, id: @purchase.id
+      expect(response).to redirect_to(root_url)
+    end
   end
 end
