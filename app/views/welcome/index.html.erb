@@ -1,4 +1,5 @@
 <% if current_user %>
+  <%= pie_chart Purchase.group(:product).where(user_id: current_user.id).count %>
 
 <% else %>
      <div class="jumbotron">
