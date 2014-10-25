@@ -3,11 +3,12 @@ class PurchasesController < ApplicationController
   before_filter :authorize
 
   def index
-    @purchase = Purchase.order(id: :desc).where(user_id: current_user.id)
+    @purchases = Purchase.order(id: :desc).where(user_id: current_user.id)
   end
 
   def new
     @purchase = Purchase.new
+    
   end
 
   def show
@@ -21,7 +22,7 @@ class PurchasesController < ApplicationController
 
     if @purchase.save
       flash[:notice] = "Purchase successfully added"
-      redirect_to root_url
+      redirect_to purchases_path
     else
       render :new
     end
@@ -47,6 +48,6 @@ class PurchasesController < ApplicationController
   end
 
   def purchase_params
-    params.require(:purchase).permit(:purchase_date, :product, :amount, :store_name)
+    params.require(:purchase).permit(:purchase_date, :product, :amount, :store_name, :category_id)
   end
 end
