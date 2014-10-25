@@ -2,6 +2,7 @@ class PurchasesController < ApplicationController
   before_filter :get_purchase, only: [:edit, :update, :show, :destroy] 
   
   def index
+    @purchase = Purchase.all
   end
 
   def new
