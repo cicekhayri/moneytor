@@ -15,6 +15,7 @@
       <ul class="nav nav-pills pull-right">
         <% if current_user %>
           <li><%= link_to "Dashbord", root_path %></li>
+          <li><%= link_to "Purchases", purchases_path %></li>
           <li><%= link_to "Categories", categories_path %></li>
           <li><%= link_to "Profile", edit_user_path(current_user) %></li>
           <li><%= link_to "Logout", logout_path %></li>
