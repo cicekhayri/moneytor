@@ -33,7 +33,9 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# for generating chart
 gem "chartkick"
+gem 'groupdate'
 
 # Use unicorn as the app server
 # gem 'unicorn'

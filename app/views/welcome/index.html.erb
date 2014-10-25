@@ -1,6 +1,7 @@
 <% if current_user %>
+  <h3>Dashboard</h3>
   <%= pie_chart Purchase.group(:product).where(user_id: current_user.id).count %>
-
+  <%= line_chart Purchase.group_by_day(:created_at).count %>
 <% else %>
      <div class="jumbotron">
         <h1>Where is your money going?</h1>
