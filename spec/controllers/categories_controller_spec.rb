@@ -6,20 +6,29 @@ RSpec.describe CategoriesController, :type => :controller do
   end
 
   describe "#index action" do
+    before do
+      @user = FactoryGirl.create(:user)
+      login(@user)
+    end
+
     it "should response with 200" do
       get :index
 
       expect(response.status).to eq(200)
     end
 
-    it "should list all categories" do
-      @category = Category.all
+    it "renders the index template" do
       get :index
-      expect(assigns(:category)).to eq(@category)
+      expect(response).to render_template("index")
     end
   end
 
   describe "#new action" do
+    before do
+      @user = FactoryGirl.create(:user)
+      login(@user)
+    end
+
     it "should response with 200" do
       get :new
 
@@ -52,6 +61,11 @@ RSpec.describe CategoriesController, :type => :controller do
   end
 
   describe "#show action" do
+    before do
+      @user = FactoryGirl.create(:user)
+      login(@user)
+    end
+
     it 'should response with 200' do
       get :show, id: @category.id
 
@@ -60,6 +74,11 @@ RSpec.describe CategoriesController, :type => :controller do
   end
 
   describe "#update action" do
+    before do
+      @user = FactoryGirl.create(:user)
+      login(@user)
+    end
+
     it "should redirect if update successfull" do
       put :update, id: @category, category: { title: "category1" }
       expect(response).to redirect_to(category_path(@category))
@@ -73,6 +92,11 @@ RSpec.describe CategoriesController, :type => :controller do
   end
 
   describe "#destroy action" do
+    before do
+      @user = FactoryGirl.create(:user)
+      login(@user)
+    end
+
     it "should destroy the category" do
       delete :destroy, id: @category.id
       expect(response).to redirect_to(root_url)
