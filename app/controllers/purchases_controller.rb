@@ -11,6 +11,9 @@ class PurchasesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
   def create
     @purchase = Purchase.new(purchase_params)
 
@@ -22,6 +25,15 @@ class PurchasesController < ApplicationController
     end
   end
 
+  def update
+    if @purchase.update_attributes(purchase_params)
+      flash[:notice] = "Purchase successfully updated"
+      redirect_to purchase_path(@purchase)
+    else
+      render :edit
+    end
+  end
+  
   private
   def get_purchase
     @purchase = Purchase.find(params[:id])
