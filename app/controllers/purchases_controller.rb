@@ -11,8 +11,7 @@ class PurchasesController < ApplicationController
   end
 
   def new
-    @purchase = Purchase.new
-    
+    @purchase = Purchase.new    
   end
 
   def show
