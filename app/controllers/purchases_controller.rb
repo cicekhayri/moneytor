@@ -8,6 +8,11 @@ class PurchasesController < ApplicationController
     else
       @purchases = Purchase.order(purchase_date: :desc).where(user_id: current_user.id)
     end
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @purchases.to_csv }
+    end
   end
 
   def new

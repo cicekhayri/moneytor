@@ -12,6 +12,9 @@
 <% end %>
 
 <br>
+<p>Download:
+  <%= link_to "CSV", purchases_path(format: "csv") %> |
+  </p>
 <table class="table table-striped">
   <tbody>
   <% @purchases.each do |purchase| %>

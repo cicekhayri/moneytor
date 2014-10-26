@@ -7,5 +7,13 @@ class Purchase < ActiveRecord::Base
     where("product LIKE ? OR store_name LIKE ?", "%#{query}%", "%#{query}%") 
   end
 
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |item|
+        csv << item.attributes.values_at(*column_names)
+      end
+    end
+  end
 
 end
