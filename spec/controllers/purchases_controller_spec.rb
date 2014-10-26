@@ -5,7 +5,12 @@ RSpec.describe PurchasesController, :type => :controller do
     @purchase = FactoryGirl.create(:purchase)
   end
 
+
   describe "#new action" do
+    before do
+      @user = FactoryGirl.create(:user)
+      login(@user)
+    end
     it "should have status 200" do
       get :new
       expect(response.status).to eq(200)
@@ -13,6 +18,10 @@ RSpec.describe PurchasesController, :type => :controller do
   end
 
   describe "#index action" do
+    before do
+      @user = FactoryGirl.create(:user)
+      login(@user)
+    end
     it "should response with status 200" do
       get :index
       expect(response.status).to eq(200)
@@ -25,6 +34,11 @@ RSpec.describe PurchasesController, :type => :controller do
   end
 
   describe "#create action" do
+    before do
+      @user = FactoryGirl.create(:user)
+      login(@user)
+    end
+
     it "should response with status 200" do
       post :create, purchase: Purchase.new.attributes
       expect(response.status).to eq(200)
@@ -43,6 +57,10 @@ RSpec.describe PurchasesController, :type => :controller do
   end
   
   describe "#show action" do
+    before do
+      @user = FactoryGirl.create(:user)
+      login(@user)
+    end
     it "should response with status 200" do
       get :show, id: @purchase.id
       expect(response).to render_template :show
@@ -51,9 +69,13 @@ RSpec.describe PurchasesController, :type => :controller do
 
 
   describe "#update action" do
+    before do
+      @user = FactoryGirl.create(:user)
+      login(@user)
+    end
     it "should redirect if update successfull" do
       put :update, id: @purchase, purchase: { product: "test" }
-      expect(response).to redirect_to(purchase_path(@purchase))
+      expect(response).to redirect_to(purchases_path)
     end
 
     it "should not update if product name is empty" do

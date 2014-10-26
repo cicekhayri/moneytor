@@ -34,7 +34,7 @@ class PurchasesController < ApplicationController
   def update
     if @purchase.update_attributes(purchase_params)
       flash[:notice] = "Purchase successfully updated"
-      redirect_to purchase_path(@purchase)
+      redirect_to purchases_path
     else
       render :edit
     end
