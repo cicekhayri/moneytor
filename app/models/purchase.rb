@@ -8,10 +8,10 @@ class Purchase < ActiveRecord::Base
   end
 
   def self.to_csv
-    CSV.generate do |csv|
-      csv << column_names
+    CSV.generate(col_sep: "\t\t\t") do |csv|
+      csv << ["Product", "Amount", "Purchase Date", "Store"]
       all.each do |item|
-        csv << item.attributes.values_at(*column_names)
+        csv << [item.product, item.amount, item.purchase_date, item.store_name]
       end
     end
   end
