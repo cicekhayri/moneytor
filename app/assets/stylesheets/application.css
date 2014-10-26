@@ -53,7 +53,9 @@ body {
   background-color:#4A993C !important;
   border-color:#269abc !important;
 }
-
+.edit_delete_link_right {
+  text-align: right;
+}
 .sidebar {
   border:1px solid #ccc;
   padding:20px;
