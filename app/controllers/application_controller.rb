@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :is_admin
   helper_method :get_current_month_purchases
   helper_method :next_month
+  helper_method :pie_chart_current_month
 
   def current_user
     if session[:user_id]
@@ -20,10 +21,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def pie_chart_current_month
+    Purchase.group(:product).where(user_id: current_user.id).where("purchase_date BETWEEN ? AND ?", @beginning_current.beginning_of_month, @beginning_current.end_of_month).count
+  end
+
   def get_current_month_purchases
-    if next_month != nil
-      Purchase.where(user_id: current_user.id).where("purchase_date BETWEEN ? AND ?", @beginning_current.beginning_of_month, @beginning_current.end_of_month).sum(:amount)
-    end
+    Purchase.where(user_id: current_user.id).where("purchase_date BETWEEN ? AND ?", @beginning_current.beginning_of_month, @beginning_current.end_of_month).sum(:amount)
   end
   
   def next_month
