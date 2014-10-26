@@ -1,31 +1,33 @@
 <% if current_user %>
-<%= form_tag root_path, :method => 'post' do %>
-  <ul class="pager">
-    <li class="previous">
-      <%= link_to @beginning_current.prev_month.strftime("%B"), root_path(:beginning_of_month => @beginning_previous) %>
-    </li>
-    <li class="next">
-      <%= link_to @beginning_current.next_month.strftime("%B"), root_path(:beginning_of_month => @beginning_next) %>
-    </li>
-  </ul>
-<% end %>
-  <h3>Your dashboard</h3>
+  <h1>Your dashboard</h1>
+
+  <%= form_tag root_path, :method => 'post' do %>
+    <ul class="pager">
+      <li class="previous">
+        <%= link_to @beginning_current.prev_month.strftime("%B"), root_path(:beginning_of_month => @beginning_previous) %>
+      </li>
+      <li class="next">
+        <%= link_to @beginning_current.next_month.strftime("%B"), root_path(:beginning_of_month => @beginning_next) %>
+      </li>
+    </ul>
+  <% end %>
   <div class="row">
     <div class="col-md-8">
+      <h3>What you spent the most money on:</h3>
       <%= pie_chart pie_chart_current_month %>
     </div>
-  <div class="col-md-4">
-    <div class="sidebar">
-      <h4>This month, you've spent:</h4>
+    <div class="col-md-4">
+      <div class="sidebar">
+        <h4>This month, you've spent:</h4>
         <h1><%= number_to_currency(get_current_month_purchases) %></h1>
+      </div>
     </div>
   </div>
-</div>
 <% else %>
-     <div class="jumbotron">
-        <h1>Where is your money going?</h1>
-        <p>Simple and flexible money tracker to help you monitor your daily spending and expenses.</p>
-      </div>
+  <div class="jumbotron">
+    <h1>Where is your money going?</h1>
+      <p>Simple and flexible money tracker to help you monitor your daily spending and expenses.</p>
+    </div>
   <div class="row">
     <div class="col-lg-4">
       <img src="assets/expense-tracking.gif">
