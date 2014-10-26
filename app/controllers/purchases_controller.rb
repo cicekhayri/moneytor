@@ -4,7 +4,7 @@ class PurchasesController < ApplicationController
 
   def index
     if params[:search]
-			@purchases = Purchase.search(params[:search]).where(user_id: current_user.id)
+      @purchases = Purchase.search(params[:search]).where(user_id: current_user.id)
     else
       @purchases = Purchase.order(id: :desc).where(user_id: current_user.id)
     end
