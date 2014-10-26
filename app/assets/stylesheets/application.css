@@ -30,6 +30,15 @@ body {
   height: 100%;
 }
 
+.sidebar {
+  border:1px solid #ccc;
+  padding:20px;
+  background-color: #eee;
+}
+.sidebar h1 {
+  text-align: center;
+}
+
 .col-lg-4 img {
   width: 100px;
   height: 100px;

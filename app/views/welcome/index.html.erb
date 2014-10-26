@@ -1,6 +1,16 @@
 <% if current_user %>
   <h3>Dashboard</h3>
-  <%= pie_chart Purchase.group(:product).where(user_id: current_user.id).count %>
+  <div class="row">
+    <div class="col-md-8">
+      <%= pie_chart Purchase.group(:product).where(user_id: current_user.id).count %>
+    </div>
+  <div class="col-md-4">
+         <div class="sidebar">
+            <h4>This month, you've spent:</h4>
+            <h1><%= number_to_currency(Purchase.order(:purchase_date).where(user_id: current_user.id).sum(:amount))%></h1>
+          </div>
+  </div>
+</div>
 <% else %>
      <div class="jumbotron">
         <h1>Where is your money going?</h1>
