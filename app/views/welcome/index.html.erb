@@ -1,9 +1,13 @@
 <% if current_user %>
 <%= form_tag root_path, :method => 'post' do %>
-  <p>
-    <%= link_to @beginning_current.beginning_of_month.strftime("%B"), root_path(:beginning_of_month => @beginning_previous) %>
-    <%= link_to @beginning_current.next_month.strftime("%B"), root_path(:beginning_of_month => @beginning_next) %>
-  </p>
+  <ul class="pager">
+    <li class="previous">
+      <%= link_to @beginning_current.prev_month.strftime("%B"), root_path(:beginning_of_month => @beginning_previous) %>
+    </li>
+    <li class="next">
+      <%= link_to @beginning_current.next_month.strftime("%B"), root_path(:beginning_of_month => @beginning_next) %>
+    </li>
+  </ul>
 <% end %>
   <h3>Dashboard</h3>
   <div class="row">
