@@ -11,7 +11,8 @@ class PurchasesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @purchases.to_csv }
+      format.csv { send_data @purchases.to_csv(col_sep: "\t") }
+      format.xls { send_data @purchases.to_csv }
     end
   end
 
