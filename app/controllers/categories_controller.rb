@@ -21,7 +21,7 @@ class CategoriesController < ApplicationController
 
     if @category.save
       flash[:notice] = "Category saved successfully"
-      redirect_to root_url
+      redirect_to categories_path
     else
       render :new
     end
