@@ -8,7 +8,7 @@
   <% end %>
   <div class="form-group">
     <%= f.label :category %>
-    <%= f.select :category_id, options_from_collection_for_select(Category.where(user_id: current_user.id), "id", "title"),include_blank: true, class: "form-control" %>
+    <%= f.select :category_id, options_from_collection_for_select(Category.where(user_id: current_user.id), "id", "title"), class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label :product %>
