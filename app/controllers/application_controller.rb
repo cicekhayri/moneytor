@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def pie_chart_current_month
-    Purchase.group(:product).where(user_id: current_user.id).where("purchase_date BETWEEN ? AND ?", @beginning_current.beginning_of_month, @beginning_current.end_of_month).count
+    Purchase.group(:product).where(user_id: current_user.id).where("purchase_date BETWEEN ? AND ?", @beginning_current.beginning_of_month, @beginning_current.end_of_month).sum(:amount)
   end
 
   def get_current_month_purchases
