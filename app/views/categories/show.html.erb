@@ -1,1 +1,5 @@
 <h3><%= @category.title %></h3>
+
+<% @category.purchases.each do |p| %>
+  <%= p.product %>
+<% end %>
