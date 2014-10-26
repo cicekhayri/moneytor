@@ -20,6 +20,6 @@ class ApplicationController < ActionController::Base
   end
 
   def get_current_month_purchases
-    @purchase_of_month = Purchase.where(user_id: current_user.id).where("purchase_date BETWEEN ? AND ?", Date.today.beginning_of_month, Date.today.end_of_month).sum(:amount)
+    Purchase.where(user_id: current_user.id).where("purchase_date BETWEEN ? AND ?", Date.today.beginning_of_month, Date.today.end_of_month).sum(:amount)
   end
 end
