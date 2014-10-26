@@ -6,7 +6,7 @@ class PurchasesController < ApplicationController
     if params[:search]
       @purchases = Purchase.search(params[:search]).where(user_id: current_user.id)
     else
-      @purchases = Purchase.order(id: :desc).where(user_id: current_user.id)
+      @purchases = Purchase.order(purchase_date: :desc).where(user_id: current_user.id)
     end
   end
 
