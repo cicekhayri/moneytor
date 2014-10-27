@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="col-md-12">
-      <%= column_chart Purchase.group_by_month(:purchase_date,format: "%B").group(:product).where(user_id: current_user.id).sum(:amount) %>
+      <%= column_chart column_chart_all_months %>
     </div>
     <div id="clear"></div>
   </div>
