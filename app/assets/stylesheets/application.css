@@ -118,6 +118,10 @@ ul {
   }
 }
 
+.pager > li > a {
+  border-radius: 5px !important;
+  padding: 10px;
+}
 
 
 /* Custom page CSS
@@ -144,3 +148,19 @@ ul {
 h1 a:hover {
   text-decoration: none;
 }
+
+.nav {
+  margin-top: 20px;
+}
+
+
+.nav a {
+  background-color: #428ed3;
+  color: #fff;
+}
+.nav a:hover {
+  color:#fff;
+  background-color:#377dbd !important;
+  border-color:#269abc !important;
+}
+
