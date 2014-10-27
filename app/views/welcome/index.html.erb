@@ -4,10 +4,10 @@
   <%= form_tag root_path, :method => 'post' do %>
     <ul class="pager">
       <li class="previous">
-        <%= link_to @beginning_current.prev_month.strftime("%B"), root_path(:beginning_of_month => @beginning_previous) %>
+      <%= link_to @beginning_current.prev_month.strftime("%B"), previous_month_path(:month => @beginning_previous) %>
       </li>
       <li class="next">
-        <%= link_to @beginning_current.next_month.strftime("%B"), root_path(:beginning_of_month => @beginning_next) %>
+        <%= link_to @beginning_current.next_month.strftime("%B"), next_month_path(:month => @beginning_next) %>
       </li>
     </ul>
   <% end %>

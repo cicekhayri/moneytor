@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :is_admin
   helper_method :get_current_month_purchases
-  helper_method :next_month
+  helper_method :get_month
   helper_method :pie_chart_current_month
 
   def current_user
@@ -29,8 +29,8 @@ class ApplicationController < ActionController::Base
     Purchase.where(user_id: current_user.id).where("purchase_date BETWEEN ? AND ?", @beginning_current.beginning_of_month, @beginning_current.end_of_month).sum(:amount)
   end
   
-  def next_month
-    @beginning_current = params[:beginning_of_month].try(:to_date) || Date.current.beginning_of_month
+  def get_month
+    @beginning_current = params[:month].try(:to_date) || Date.current.beginning_of_month
     @date_range = (@beginning_current.beginning_of_month..@beginning_current.end_of_month) 
     @beginning_next     = (@beginning_current + 1.month).beginning_of_month.to_s
     @beginning_previous = (@beginning_current - 1.month).beginning_of_month.to_s      

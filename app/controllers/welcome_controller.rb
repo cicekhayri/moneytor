@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    next_month
+    get_month
   end
 end
