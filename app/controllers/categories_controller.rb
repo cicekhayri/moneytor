@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   before_filter :authorize 
 
   def index
-    @categories = Category.order(title: :asc).where(user_id: current_user.id)
+    @categories = Category.paginate(:page => params[:page]).order(title: :asc).where(user_id: current_user.id)
   end
 
   def new

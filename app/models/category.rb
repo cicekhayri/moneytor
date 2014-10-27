@@ -3,4 +3,6 @@ class Category < ActiveRecord::Base
 
   belongs_to :user
   has_many :purchases
+  
+  self.per_page = 30
 end
