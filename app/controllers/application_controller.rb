@@ -23,6 +23,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def get_category_title
+  end
+
   def pie_chart_current_month
     Purchase.group(:product).where(user_id: current_user.id).where("purchase_date BETWEEN ? AND ?", @beginning_current_month.beginning_of_month, @beginning_current_month.end_of_month).sum(:amount)
   end
@@ -35,7 +38,7 @@ class ApplicationController < ActionController::Base
     Purchase.where(user_id: current_user.id).where("purchase_date BETWEEN ? AND ?", @beginning_previous_month, @beginning_current_month.beginning_of_month-1.day).sum(:amount)
   end
 
-  def column_chart_all_months
+  def column_chart_all_months 
     Purchase.where(user_id: current_user.id).group_by_month(:purchase_date,format: "%B").group(:product).sum(:amount)
   end
   
