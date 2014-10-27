@@ -27,6 +27,10 @@
         <h1><%= number_to_currency(get_previous_month_purchases) %></h1>
       </div>
     </div>
+    <div class="col-md-12">
+      <%= column_chart Purchase.group_by_month(:purchase_date,format: "%B").group(:product).where(user_id: current_user.id).sum(:amount) %>
+    </div>
+    <div id="clear"></div>
   </div>
 <% else %>
   <div class="jumbotron">
