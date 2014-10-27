@@ -59,7 +59,7 @@ body {
 .sidebar {
   border:1px solid #ccc;
   padding:20px;
-  background-color: #eee;
+  background-color: #ffffe5;
 }
 .sidebar h1 {
   text-align: center;
@@ -124,9 +124,15 @@ ul {
 -------------------------------------------------- */
 
 .container {
-  width: auto;
+  height: 100%;
   max-width: 1000px;
 }
+
+.container_header {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
 .container .credit {
   margin: 20px 0;
 }

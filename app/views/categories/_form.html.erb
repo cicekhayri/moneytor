@@ -1,19 +1,23 @@
-<%= form_for @category do |f| %>
-  <% if @category.errors.any? %>
-    <ul>
-      <% @category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="row">
+  <div class="col-md-6">
+    <%= form_for @category do |f| %>
+      <% if @category.errors.any? %>
+        <ul>
+          <% @category.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
       <% end %>
-    </ul>
-  <% end %>
 
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control", placeholder: "Food" %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control", placeholder: "Food" %>
+      </div>
+      <%= f.submit class: "btn btn-success" %>
+      
+    <% end %>
   </div>
-  <%= f.submit class: "btn btn-success" %>
-  
-<% end %>
+</div>
 
 <br>
 <%= link_to "Back", :back %>
