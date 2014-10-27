@@ -36,7 +36,7 @@ gem 'bcrypt', '~> 3.1.7'
 # for generating chart
 gem "chartkick"
 gem 'groupdate'
-
+gem 'will_paginate', '~> 3.0'
 # Use unicorn as the app server
 # gem 'unicorn'
 

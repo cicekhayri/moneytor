@@ -6,7 +6,7 @@ class PurchasesController < ApplicationController
     if params[:search]
       @purchases = Purchase.search(params[:search]).where(user_id: current_user.id)
     else
-      @purchases = Purchase.order(purchase_date: :desc).where(user_id: current_user.id)
+      @purchases = Purchase.paginate(:page => params[:page], :per_page => 30).order(purchase_date: :desc).where(user_id: current_user.id)
     end
 
     respond_to do |format|
