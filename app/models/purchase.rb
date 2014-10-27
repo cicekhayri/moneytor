@@ -3,6 +3,8 @@ class Purchase < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
+  self.per_page = 1
+
   def self.search(query)
     where("product LIKE ? OR store_name LIKE ?", "%#{query}%", "%#{query}%") 
   end
