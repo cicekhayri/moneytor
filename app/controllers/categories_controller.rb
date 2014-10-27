@@ -1,6 +1,5 @@
 class CategoriesController < ApplicationController
   before_filter :get_category, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize 
 
   def index
     @categories = Category.paginate(:page => params[:page]).order(title: :asc).where(user_id: current_user.id)
@@ -8,12 +7,6 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
-  end
-
-  def show
-  end
-
-  def edit
   end
 
   def create

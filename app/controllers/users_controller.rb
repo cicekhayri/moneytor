@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_filter :get_user, only: [:edit, :show, :update, :destroy]
+  skip_before_filter :authorize
+
   def new
     if !current_user
       @user = User.new

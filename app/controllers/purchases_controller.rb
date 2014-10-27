@@ -1,6 +1,5 @@
 class PurchasesController < ApplicationController
   before_filter :get_purchase, only: [:edit, :update, :show, :destroy] 
-  before_filter :authorize
 
   def index
     if params[:search]
