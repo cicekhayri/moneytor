@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   before_filter :authorize 
 
   helper_method :current_user
-  helper_method :is_admin
   helper_method :get_current_month_purchases
   helper_method :get_previous_month_purchases
   helper_method :column_chart_all_months
@@ -19,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize
-    if !current_user
+    if current_user != User.find(params[:id])
       redirect_to root_url
     end
   end

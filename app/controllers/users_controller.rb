@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :get_user, only: [:edit, :show, :update, :destroy]
-  skip_before_filter :authorize
+  skip_before_filter :authorize, only: [:new, :create]
 
   def new
     if !current_user
@@ -16,10 +16,6 @@ class UsersController < ApplicationController
     else
       redirect_to root_url
     end
-  end
-
-  def edit
-
   end
 
   def create
