@@ -23,21 +23,21 @@ class ApplicationController < ActionController::Base
   end
 
   def pie_chart_current_month
-    Purchase.group(:product).where(user_id: current_user.id).where("purchase_date BETWEEN ? AND ?", @beginning_current.beginning_of_month, @beginning_current.end_of_month).sum(:amount)
+    Purchase.group(:product).where(user_id: current_user.id).where("purchase_date BETWEEN ? AND ?", @beginning_current_month.beginning_of_month, @beginning_current_month.end_of_month).sum(:amount)
   end
 
   def get_current_month_purchases
-    Purchase.where(user_id: current_user.id).where("purchase_date BETWEEN ? AND ?", @beginning_current.beginning_of_month, @beginning_current.end_of_month).sum(:amount)
+    Purchase.where(user_id: current_user.id).where("purchase_date BETWEEN ? AND ?", @beginning_current_month.beginning_of_month, @beginning_current_month.end_of_month).sum(:amount)
   end
 
   def get_previous_month_purchases
-    Purchase.where(user_id: current_user.id).where("purchase_date BETWEEN ? AND ?", @beginning_previous, @beginning_current.beginning_of_month-1.day).sum(:amount)
+    Purchase.where(user_id: current_user.id).where("purchase_date BETWEEN ? AND ?", @beginning_previous_month, @beginning_current_month.beginning_of_month-1.day).sum(:amount)
   end
   
   def get_month
-    @beginning_current = params[:month].try(:to_date) || Date.current.beginning_of_month
-    @date_range = (@beginning_current.beginning_of_month..@beginning_current.end_of_month) 
-    @beginning_next     = (@beginning_current + 1.month).beginning_of_month.to_s
-    @beginning_previous = (@beginning_current - 1.month).beginning_of_month.to_s      
+    @beginning_current_month = params[:month].try(:to_date) || Date.current.beginning_of_month
+    @date_range = (@beginning_current_month.beginning_of_month..@beginning_current_month.end_of_month) 
+    @beginning_next_month     = (@beginning_current_month + 1.month).beginning_of_month.to_s
+    @beginning_previous_month = (@beginning_current_month - 1.month).beginning_of_month.to_s      
   end
 end
