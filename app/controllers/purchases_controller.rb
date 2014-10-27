@@ -48,7 +48,7 @@ class PurchasesController < ApplicationController
 
   def destroy
     @purchase.destroy
-    redirect_to root_url
+    redirect_to purchases_path
   end
   
   private
