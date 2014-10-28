@@ -1,4 +1,17 @@
-<% @users.each do |user| %>
-  <%= user.email %>
-
-<% end %>
+<h1>Admin</h1>
+<p>Moneytor users</p>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>User Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td class="edit_delete_link_right"><%= link_to 'Delete', user_path(user), method: :delete, data: { confirm: "Are you sure you wan't to delete user" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

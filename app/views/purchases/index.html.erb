@@ -16,7 +16,15 @@
   <%= link_to "CSV", purchases_path(format: "csv") %> |
   <%= link_to "Excel", purchases_path(format: "xls") %>
   </p>
-<table class="table table-striped">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>You bought</th>
+      <th>Amount</th>
+      <th>When</th>
+      <th>Where</th>
+    </tr>
+  </thead>
   <tbody>
   <% @purchases.each do |purchase| %>
     <tr>
