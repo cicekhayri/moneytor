@@ -4,11 +4,11 @@
     <%= form_tag sessions_path do %>
       <div class="form-group">  
       <%= label_tag :email %>
-      <%= text_field_tag :email, nil, class: "form-control", placeholder: "Enter email"  %>
+      <%= text_field_tag :email, nil, required: true, class: "form-control", placeholder: "Enter email"  %>
       </div>
       <div class="form-group">  
       <%= label_tag :password %>
-      <%= password_field_tag :password, nil, class: "form-control", placeholder: "Enter password"%>
+      <%= password_field_tag :password, nil, required: true, class: "form-control", placeholder: "Enter password"%>
       </div>
       <%= submit_tag "Login", class: "btn btn-success" %>
     <% end %>

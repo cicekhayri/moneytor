@@ -3,19 +3,15 @@ class UsersController < ApplicationController
   skip_before_filter :authorize, only: [:new, :create]
 
   def new
-    if !current_user
-      @user = User.new
-    else
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user
+
+    @user = User.new
   end
 
   def show
-    if current_user
-      @user = current_user
-    else
-      redirect_to root_url
-    end
+    redirect_to root_path unless current_user
+
+    @user = current_user
   end
 
   def create
