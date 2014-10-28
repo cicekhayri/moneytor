@@ -38,6 +38,9 @@ a img {
 .img_modal img {
   width: 300px;
 }
+.img_edit img {
+  width: 200px;
+}
 
 .month_name {
   display: flex; /* or inline-flex */
