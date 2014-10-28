@@ -27,15 +27,16 @@
         <% end %>
       </ul>
       <h1 class="text-muted">
-        <img src="/assets/logo.png" height="90px" width="100px">
+        Moneytor
       </h1>
 
     </div>
   </div>
 
-
     <div class="container">
-
+      <% flash.each do |name, msg| %>
+        <%= msg %>
+      <% end %>
     <%= yield %>
     </div>
 

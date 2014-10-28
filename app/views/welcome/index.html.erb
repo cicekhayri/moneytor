@@ -2,14 +2,16 @@
   <h1>Your dashboard</h1>
 
   <%= form_tag root_path, :method => 'post' do %>
-    <ul class="pager">
-      <li class="previous">
-      <%= link_to @beginning_current_month.prev_month.strftime("%B"), previous_month_path(:month => @beginning_previous_month) %>
-      </li>
-      <li class="next">
-        <%= link_to @beginning_current_month.next_month.strftime("%B"), next_month_path(:month => @beginning_next_month) %>
-      </li>
-    </ul>
+    <div class="month_name">
+    <div class="none">
+      <div class="previous"><%= link_to @beginning_current_month.prev_month.strftime("%B"), previous_month_path(:month => @beginning_previous_month) %></div>
+    </div>
+    <div class="flex1">
+      <h1><%= @beginning_current_month.strftime("%B") %></h1>
+    </div>
+    <div class="flex1">
+      <div class="next"><%= link_to @beginning_current_month.next_month.strftime("%B"), next_month_path(:month => @beginning_next_month) %></div>
+    </div></div>
   <% end %>
   <div class="row">
     <div class="col-md-8">
