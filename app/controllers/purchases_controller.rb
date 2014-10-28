@@ -2,14 +2,12 @@ class PurchasesController < ApplicationController
   before_filter :get_purchase, only: [:edit, :update, :show, :destroy] 
 
   def index
-    if params[:search]
-      @purchases = Purchase.search(params[:search]).where(user_id: current_user.id)
-    else
-      @purchases = Purchase.paginate(:page => params[:page]).order(purchase_date: :desc).where(user_id: current_user.id)
-    end
+    @purchases = current_user.purchases
+    @purchases = @purchases.search(params[:search]) if params[:search]
+    @purchases = @purchases.order(purchase_date: :desc)
 
     respond_to do |format|
-      format.html
+      format.html { @purchases = @purchases.paginate(page: params[:page]) }
       format.csv { send_data @purchases.to_csv(col_sep: "\t") }
       format.xls { send_data @purchases.to_csv }
     end
@@ -19,14 +17,9 @@ class PurchasesController < ApplicationController
     @purchase = Purchase.new    
   end
 
-  def show
-  end
-
-  def edit
-  end
-
   def create
-    @purchase = Purchase.new(purchase_params.merge(user_id: current_user.id))
+    @purchase = Purchase.new(purchase_params)
+    @purchase.user = current_user
 
     if @purchase.save
       flash[:notice] = "Purchase successfully added"
