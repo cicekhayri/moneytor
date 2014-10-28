@@ -19,6 +19,7 @@
 <table class="table table-hover">
   <thead>
     <tr>
+      <th>Receipt</th>
       <th>You bought</th>
       <th>Amount</th>
       <th>When</th>
@@ -28,6 +29,7 @@
   <tbody>
   <% @purchases.each do |purchase| %>
     <tr>
+      <td><a href="<%= purchase.receipt_url %>"><%= image_tag(purchase.receipt_url) if purchase.receipt? %></a></td>
       <td><%= purchase.product %></td>
       <td><%= number_to_currency(purchase.amount) %></td>
       <td><%= purchase.purchase_date %></td>

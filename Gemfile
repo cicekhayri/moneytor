@@ -39,6 +39,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem "chartkick"
 gem 'groupdate'
 gem 'will_paginate', '~> 3.0'
+gem 'carrierwave'
+gem "fog"
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -1,6 +1,8 @@
 class Purchase < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
+
+  mount_uploader :receipt, ReceiptUploader 
   
   validates :product, presence: true
 

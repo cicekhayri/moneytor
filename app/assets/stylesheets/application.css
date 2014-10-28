@@ -30,6 +30,11 @@ body {
   height: 100%;
 }
 
+.table img {
+  width: 60px;
+  height: 60px;
+}
+
 .month_name {
   display: flex; /* or inline-flex */
   flex-flow: row wrap;

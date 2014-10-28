@@ -13,6 +13,10 @@
         <%= f.collection_select :category_id, Category.order(:title), :id, :title, {} %>
       </div>
       <div class="form-group">
+        <%= f.label :receipt %>
+        <%= f.file_field :receipt %>
+      </div>
+      <div class="form-group">
         <%= f.label :product %>
         <%= f.text_field :product, class: "form-control", placeholder: "Shoes" %>
       </div>
