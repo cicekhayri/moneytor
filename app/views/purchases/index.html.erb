@@ -29,7 +29,32 @@
   <tbody>
   <% @purchases.each do |purchase| %>
     <tr>
-      <td><a href="<%= purchase.receipt_url %>"><%= image_tag(purchase.receipt_url) if purchase.receipt? %></a></td>
+      <td class="img_td"><a data-toggle="modal" data-target="#myModal"><%= image_tag(purchase.receipt_url) if purchase.receipt? %></a>
+      
+      
+      <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Your Receipt</h4>
+      </div>
+      <div class="modal-body">
+        <div class="img_modal"><%= image_tag(purchase.receipt_url)%></div>
+        <h4>Right click and save the receipt</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+      
+      
+      
+      
+      </td>
       <td><%= purchase.product %></td>
       <td><%= number_to_currency(purchase.amount) %></td>
       <td><%= purchase.purchase_date %></td>
@@ -40,3 +65,5 @@
   </tbody>
 </table>
 <%= will_paginate @purchases%>
+
+

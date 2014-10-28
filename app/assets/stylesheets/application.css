@@ -30,9 +30,13 @@ body {
   height: 100%;
 }
 
-.table img {
+a img {
   width: 60px;
   height: 60px;
+}
+
+.img_modal img {
+  width: 300px;
 }
 
 .month_name {
