@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :sessions, only: [:create]
 
+  get 'admin_index', to: "admin#index", as: 'admin_index'
 
   get 'previous_month', to: "welcome#index"
   get 'next_month', to: "welcome#index"

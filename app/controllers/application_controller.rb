@@ -5,10 +5,19 @@ class ApplicationController < ActionController::Base
   before_filter :authorize 
 
   helper_method :current_user
+  helper_method :is_admin?
 
   def current_user 
     if session[:user_id]
       @current_user ||= User.find(session[:user_id])  
+    end
+  end
+
+  def is_admin?
+    if current_user && current_user.admin == true
+      return true
+    else
+      return false
     end
   end
 

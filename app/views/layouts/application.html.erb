@@ -14,6 +14,9 @@
     <div class="header">
 
       <ul class="nav nav-pills pull-right">
+        <% if is_admin? %>
+          <li><%= link_to "Admin", admin_index_path %></li>
+        <% end %>
         <% if current_user %>
           <li><%= link_to "Your dashbord", root_path %></li>
           <li><%= link_to "Purchases", purchases_path %></li>

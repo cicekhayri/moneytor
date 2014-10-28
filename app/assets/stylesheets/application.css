@@ -71,6 +71,7 @@ body {
   color:#fff;
   background-color:#4A993C !important;
   border-color:#269abc !important;
+  text-decoration: none;
 }
 
 .previous a:hover {
