@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   def index
     @beginning_current_month = params[:month].try(:to_date) || Date.current.beginning_of_month
     @date_range = (@beginning_current_month.beginning_of_month..@beginning_current_month.end_of_month) 
-    @beginning_next_month     = (@beginning_current_month + 1.month).beginning_of_month.to_s
+    @beginning_next_month     = (@beginning_current_month + 1.month).beginning_of_month
     @beginning_previous_month = (@beginning_current_month - 1.month).beginning_of_month  
     
     

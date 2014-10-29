@@ -39,9 +39,9 @@ Rails.application.configure do
     :storage => :s3,
     :s3_protocol => 'http',
     :s3_credentials => {
-      :bucket => ENV[”BUCKET_NAME’],
-      :access_key_id => ENV[”ACCESS_KEY_ID”],
-      :secret_access_key => ENV[”SECRET_ACCESS_KEY”]
+      :bucket => ENV["BUCKET_NAME"],
+      :access_key_id => ENV["ACCESS_KEY_ID"],
+      :secret_access_key => ENV["SECRET_ACCESS_KEY"]
     },
     url: ":s3_domain_url",
     path: "/:class/:attachment/:id_partition/:style/:filename"
