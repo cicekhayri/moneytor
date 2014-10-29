@@ -24,7 +24,7 @@
         <h1><%= number_to_currency(@get_current_month_purchases) %></h1>
       </div>
       <br>
-      <div class="sidebar">
+      <div class="sidebar_last">
         <h4>Last month you spent:</h4>
         <h1><%= number_to_currency(@get_previous_month_purchases) %></h1>
       </div>
@@ -32,7 +32,6 @@
     <div class="col-md-12">
       <%= column_chart @column_chart_all_months %>
     </div>
-    <div id="clear"></div>
   </div>
 <% else %>
   <div class="jumbotron">
@@ -79,13 +78,29 @@
 
   <hr class="featurette-divider">
 
+  
   <div class="row featurette">
     <div class="col-md-5">
-      <img class="featurette-image img-responsive" src="/assets/signup.png" alt="Generic placeholder image">
+      <img class="featurette-image img-responsive" src="/assets/receipt.png" alt="Generic placeholder image">
     </div>
+    <div class="col-md-7">
+      <h2 class="featurette-heading">Receipt</h2>
+      <p class="lead">Upload your receipt</p>
+    </div>
+
+  </div>
+  
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+
     <div class="col-md-7">
       <h2 class="featurette-heading">Quick & Safe</h2>
       <p class="lead">Creating account takes only a few seconds and we promise not to share you personal information.</p>
+    </div>
+
+    <div class="col-md-5">
+      <img class="featurette-image img-responsive" src="/assets/signup.png" alt="Generic placeholder image">
     </div>
   </div>
 
