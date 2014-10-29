@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get 'previous_month', to: "welcome#index"
   get 'next_month', to: "welcome#index"
+  get 'show_by_category', to: 'welcome#show_by_category'
   
   get 'login', to: "sessions#new"
   get 'logout', to: "sessions#destroy" 

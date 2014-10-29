@@ -28,11 +28,31 @@
         <h4>Last month you spent:</h4>
         <h1><%= number_to_currency(@get_previous_month_purchases) %></h1>
       </div>
+      <br>
+      <div class="sidebar">
+      <h4>Show spending by category</h4>
+        <%= form_tag root_path, method: :get, :class => "form-inline" do %>
+
+          <div class="form-group">
+         <%= select_tag :category_id, options_from_collection_for_select(Category.all, "id", "title") %>
+
+          </div>
+        <%= submit_tag "Category", class:"btn btn-success" %>
+
+        <% end %>
+      </div>
     </div>
     <div class="col-md-12">
-      <%= column_chart @column_chart_all_months %>
+      <% if params[:category_id] %>
+        <%= column_chart @category_char %>
+      <% else %>
+        <%= column_chart @column_chart_all_months %>
+      <% end %>
+      <br><br>
     </div>
   </div>
+
+
 <% else %>
   <div class="jumbotron">
     <h1>Where is your money going?</h1>
