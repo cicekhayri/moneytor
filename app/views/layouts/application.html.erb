@@ -8,7 +8,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <div class="container_language">
+    <div class="lang"><%= link_to image_tag('us.png'), locale: "en" %> <%= link_to image_tag('se.png'), locale: "sv" %></div>
+  </div>
   <div class="container_header">
 
     <div class="header">
@@ -28,7 +30,8 @@
           <li><%= link_to "Signup", signup_path %></li> 
           <li><%= link_to "Login", login_path %></li>
         <% end %>
-      </ul>
+      </ul> 
+
       <h1 class="text-muted">
         Moneytor
       </h1>

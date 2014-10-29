@@ -17,4 +17,10 @@ Rails.application.routes.draw do
   get 'logout', to: "sessions#destroy" 
   get 'signup', to: "users#new", as: "signup"
  
+
+  # config/routes.rb
+  scope "(:locale)", locale: /en|sv/ do
+    resources :welcome
+  end
+  get '/:locale' => 'welcome#index'
 end

@@ -31,6 +31,22 @@ body {
   background-color: #FCFBFA;
 }
 
+ul li {
+  background-color:#fff !important;
+  color:#000;
+}
+.lang {
+  float: right;
+  margin-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.lang img {
+  width: 20px;
+  height: 15px;
+}
+
 a img {
   width: 60px;
   height: 60px;
@@ -150,6 +166,7 @@ a img {
 .text-muted {
   color: #377dbd;
   padding: 15px;
+  padding-top: 30px;
   font-size: 50px;
 }
 
@@ -235,6 +252,11 @@ ul {
    position:relative;
 }
 
+.container_language {
+  margin: 0 auto;
+  max-width: 1000px;
+  background-color:#fff;
+}
 
 
 .container_header {
@@ -256,8 +278,8 @@ h1 a:hover {
 }
 
 .nav {
-  margin-top: 25px;
-  margin-right: 10px;
+  margin-top: 35px;
+  margin-right: -50px;
 }
 
 .col-md-12 {

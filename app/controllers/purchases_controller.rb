@@ -45,7 +45,8 @@ class PurchasesController < ApplicationController
   
   private
   def get_purchase
-    @purchase = Purchase.find(params[:id])
+    @purchase = Purchase.find(params[:id]) 
+    redirect_to purchases_path if :show
   end
 
   def purchase_params

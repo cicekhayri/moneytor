@@ -20,4 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  what_you_spent: 'What you spent the most money on' 
+  current_month_you_spent: "This month, you've spent"
+  last_month_spent: "Last month you spent"
