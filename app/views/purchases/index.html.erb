@@ -29,7 +29,7 @@
   <tbody>
   <% @purchases.each do |purchase| %>
     <tr>
-      <td class="img_td"><a data-toggle="modal" data-target="#myModal"><%= image_tag(purchase.receipt_url) if purchase.receipt? %></a>
+      <td class="img_td"><a data-toggle="modal" data-target="#myModal"><%= image_tag(purchase.receipt.url) if purchase.receipt? %></a>
       
       
       <!-- Modal -->
@@ -41,7 +41,7 @@
         <h4 class="modal-title" id="myModalLabel">Your Receipt</h4>
       </div>
       <div class="modal-body">
-        <div class="img_modal"><%= image_tag(purchase.receipt_url)%></div>
+        <div class="img_modal"><%= image_tag(purchase.receipt.url)%></div>
         <h4>Right click and save the receipt</h4>
       </div>
       <div class="modal-footer">

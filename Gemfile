@@ -39,8 +39,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem "chartkick"
 gem 'groupdate'
 gem 'will_paginate', '~> 3.0'
-gem 'carrierwave'
-gem "fog"
+gem "paperclip", "~> 4.2"
+gem 'aws-sdk', '~> 1.5.7'
 # Use unicorn as the app server
 # gem 'unicorn'
 

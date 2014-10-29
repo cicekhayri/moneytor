@@ -15,7 +15,7 @@
       <div class="form-group">
         <%= f.label :receipt %>
         <% if @purchase.receipt %>
-          <div class="img_edit"><%= image_tag(@purchase.receipt_url) %></div>
+          <div class="img_edit"><%= image_tag(@purchase.receipt.url) %></div>
         <% end %>
         <br>
         <%= f.file_field :receipt %>
