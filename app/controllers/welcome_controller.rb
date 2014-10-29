@@ -13,7 +13,7 @@ class WelcomeController < ApplicationController
       @pie_chart_current_month = current_user.purchases.group(:product).for_month(@beginning_current_month).sum(:amount)
       @column_chart_all_months = current_user.purchases.group_by_month(:purchase_date,format: "%B").sum(:amount)
       
-      @category_char = current_user.purchases.where(category_id: params[:category_id]).group(:product).sum(:amount)
+      @amount_by_category = current_user.purchases.for_category(params[:category_id]).group(:product).sum(:amount)
     end
   end
 end

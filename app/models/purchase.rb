@@ -10,7 +10,8 @@ class Purchase < ActiveRecord::Base
   scope :search, lambda { |query| where("lower(product) LIKE ? OR lower(store_name) LIKE ?", "%#{query.downcase}%", "%#{query.downcase}%") }
   scope :for_month, lambda { |month| between(month.beginning_of_month, month.end_of_month) }
   scope :between, lambda { |beginning, finish| where("purchase_date BETWEEN ? AND ?", beginning, finish) }
-
+  scope :for_category, lambda { |category| where(category_id: category) }
+  
   self.per_page = 30
 
   def self.to_csv(options = {})

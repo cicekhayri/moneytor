@@ -29,21 +29,24 @@
         <h1><%= number_to_currency(@get_previous_month_purchases) %></h1>
       </div>
       <br>
-      <div class="sidebar_last">
-      <h4>Show spending by category</h4>
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <h4>Show spending by category</h4>
+        
         <%= form_tag root_path, method: :get, :class => "form-inline" do %>
-
-          <div class="form-group">
+          <div class="category_name">
+            <div class="category_center">
             <%= select_tag :category_id, options_from_collection_for_select(Category.all, "id", "title") %>
+           
+            <%= submit_tag "Show", class:"btn btn-success btn-xs"%>
+          
           </div>
-        <%= submit_tag "Category", class:"btn btn-success" %>
-
+          </div>
         <% end %>
       </div>
-    </div>
     <div class="col-md-12">
       <% if params[:category_id] %>
-        <%= column_chart @category_char %>
+        <%= column_chart @amount_by_category %>
       <% else %>
         <%= column_chart @column_chart_all_months %>
       <% end %>
