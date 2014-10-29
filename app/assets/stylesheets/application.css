@@ -153,9 +153,11 @@ a img {
 /* Set the fixed height of the footer here */
 
 #footer {
-   height:60px;   /* Height of the footer */
-   width: 1000px;
-   margin-left: 183px;
+	height:80px;
+	position:absolute;
+	bottom:0;
+	left:0;
+	background:#ee5;
 }
 #footer {
   background-color: #fff;
@@ -203,6 +205,7 @@ ul {
   min-height:100%;
    position:relative;
 }
+
 
 
 .container_header {
