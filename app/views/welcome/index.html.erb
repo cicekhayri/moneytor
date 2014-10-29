@@ -36,7 +36,7 @@
         <%= form_tag root_path, method: :get, :class => "form-inline" do %>
           <div class="category_name">
             <div class="category_center">
-            <%= select_tag :category_id, options_from_collection_for_select(Category.all, "id", "title") %>
+            <%= select_tag :category_id, options_from_collection_for_select(current_user.categories.all, "id", "title") %>
            
             <%= submit_tag "Show", class:"btn btn-success btn-xs"%>
           
