@@ -1,5 +1,4 @@
 class WelcomeController < ApplicationController
-  require 'pry'
   skip_before_filter :authorize
   
   def index
@@ -15,11 +14,6 @@ class WelcomeController < ApplicationController
       @column_chart_all_months = current_user.purchases.group_by_month(:purchase_date,format: "%B").sum(:amount)
       
       @category_char = current_user.purchases.where(category_id: params[:category_id]).group(:product).sum(:amount)
-
-      #@category_char = current_user.purchases.group_by { |p| p.purchase_date.beginning_of_month }.map { |m,ps| { m => ps.group_by(&:category).map { |c,ps| { c.title => ps.sum(&:amount) } }.inject(:merge) }}.inject(:merge) 
     end
-
   end
-
-
 end
