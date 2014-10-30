@@ -4,13 +4,13 @@
   <%= form_tag root_path, :method => 'post' do %>
     <div class="month_name">
     <div class="none">
-      <div class="previous"><%= link_to @beginning_current_month.prev_month.strftime("%B"), previous_path(:month => @beginning_previous_month.strftime("%B")) %></div>
+      <div class="previous"><%= link_to l(@beginning_current_month.prev_month, format: "%B"), previous_path(:month => @beginning_previous_month.strftime("%B")) %></div>
     </div>
     <div class="flex1">
-      <h1><%= @beginning_current_month.strftime("%B") %></h1>
+      <h1><%= l(@beginning_current_month, format: "%B")%></h1>
     </div>
     <div class="flex1">
-      <div class="next"><%= link_to @beginning_current_month.next_month.strftime("%B"), next_path(:month => @beginning_next_month.strftime("%B")) %></div>
+      <div class="next"><%= link_to l(@beginning_current_month.next_month, format: "%B"), next_path(:month => @beginning_next_month.strftime("%B")) %></div>
     </div></div>
   <% end %>
   <div class="row">
