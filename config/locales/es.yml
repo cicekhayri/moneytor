@@ -221,7 +221,7 @@ es:
   password: "Contraseña"
   password_confirmation: 'Confirma la contraseña'
   edit_your_profile: "Edita la información de tu perfil"  
-  where_is_your_money_going: "Dónde va tu dinero?"
+  where_is_your_money_going: "¿Dónde va tu dinero?"
   simple: "Una herramienta fácil y flexible para ayudarte a controlar tus gastos diarios."
   track: "Ten monitorizado lo que tu quieras"
   track_category: "Organiza por categorías"
