@@ -38,7 +38,7 @@ ul li {
 .lang {
   float: right;
   margin-top: 5px;
-  padding-right: 10px;
+  padding-right: -10px;
   padding-bottom: 10px;
 }
 
@@ -104,9 +104,10 @@ a img {
 .flex2 {
 }
 
-.flex1 h1 {
+.flex1 h2 {
   margin-top: -12px;
   text-align: left;
+  font-weight: bold;
 }
 
 .next a {
@@ -166,6 +167,7 @@ a img {
 .text-muted {
   color: #377dbd;
   padding: 15px;
+  margin-left: -18px;
   padding-top: 30px;
   font-size: 50px;
 }
@@ -207,6 +209,7 @@ a img {
 }
 #footer {
   background-color: #fff;
+  border-bottom-left-radius: 2em; 
 }
 
 #footer p {
@@ -249,7 +252,9 @@ ul {
   max-width: 1000px;
   background-color:#fff;
   min-height:100%;
-   position:relative;
+  position:relative;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #888888;
 }
 
 .container_language {
@@ -262,7 +267,6 @@ ul {
 .container_header {
   margin: 0 auto;
   max-width: 1000px;
-  background-color:#fff;
 }
 
 .container .credit {
@@ -279,11 +283,12 @@ h1 a:hover {
 
 .nav {
   margin-top: 35px;
-  margin-right: -40px;
+  margin-right: -70px;
 }
 
 .add_new_button {
   float: right;
+  margin-top: 10px;
 }
 
 .col-md-12 {

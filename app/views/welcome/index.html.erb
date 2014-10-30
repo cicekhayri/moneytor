@@ -1,5 +1,4 @@
 <% if current_user %>
-  <h1><%=t :your_dashboard %></h1>
 
   <%= form_tag root_path, :method => 'post' do %>
     <div class="month_name">
@@ -7,7 +6,7 @@
         <div class="previous"><%= link_to l(@beginning_previous_month, format: "%B"), :month => (@months.beginning_of_month-1).strftime("%Y-%m-01") %></div>
       </div>
       <div class="flex1">
-        <h1> <%= @months.strftime("%B %Y") %></h1>
+        <h2> <%= @months.strftime("%B, %Y") %></h2>
       </div>
       <div class="flex1">
         <div class="next"><%= link_to l(@beginning_next_month, format: "%B"), :month => (@months.end_of_month+1).strftime("%Y-%m-01") %></div>
@@ -127,6 +126,5 @@
     </div>
   </div>
 
-  <hr class="featurette-divider">
 <% end %>
 <br>
