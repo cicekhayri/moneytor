@@ -3,11 +3,14 @@ class WelcomeController < ApplicationController
   
   def index
     @beginning_current_month = params[:month].try(:to_date) || Date.current.beginning_of_month
-    @date_range = (@beginning_current_month.beginning_of_month..@beginning_current_month.end_of_month) 
+    #@date_range = (@beginning_current_month.beginning_of_month..@beginning_current_month.end_of_month) 
     @beginning_next_month     = (@beginning_current_month + 1.month).beginning_of_month
     @beginning_previous_month = (@beginning_current_month - 1.month).beginning_of_month  
     
-    
+    @current_year = params[:year].try(:to_date) || Date.today.end_of_year
+    @next_year = (@current_year + 1.year).beginning_of_year
+    @prev_year = (@current_year.end_of_year - 1.year).end_of_year
+
     if current_user
       
       category = current_user.categories.find(params[:category_id])  if params[:category_id]

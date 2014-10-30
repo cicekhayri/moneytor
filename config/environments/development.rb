@@ -39,9 +39,9 @@ Rails.application.configure do
     :storage => :s3,
     :s3_protocol => 'http',
     :s3_credentials => {
-      :bucket => 'moneytor',
-      :access_key_id => 'AKIAJG4AYGD7WO3WGPMQ',
-      :secret_access_key => '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'
+      :bucket => ENV["BUCKET_NAME"],
+      :access_key_id => ENV["ACCESS_KEY_ID"],
+      :secret_access_key => ENV["SECRET_ACCESS_KEY"]
     },
     url: ":s3_domain_url",
     path: "/:class/:attachment/:id_partition/:style/:filename"
