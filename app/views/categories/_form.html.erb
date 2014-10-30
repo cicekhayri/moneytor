@@ -10,14 +10,15 @@
       <% end %>
 
       <div class="form-group">
-        <%= f.label :title %>
+        <%= f.label t(:title) %>
         <%= f.text_field :title, class: "form-control", placeholder: "Food" %>
       </div>
       <%= f.submit class: "btn btn-success" %>
       
     <% end %>
+    <br>
   </div>
 </div>
 
 <br>
-<%= link_to "Back", :back %>
+<%= link_to t(:back), :back %>

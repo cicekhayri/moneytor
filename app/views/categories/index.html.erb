@@ -1,11 +1,11 @@
 <%= render 'nav' %>
-<h3>Categories</h3>
+<h3><%= t(:categories) %></h3>
 <table class="table table-striped">
   <tbody>
       <% @categories.each do |category| %>
         <tr>
           <td><%= link_to category.title, category_path(category) %></td>
-          <td class="edit_delete_link_right"><%= link_to "Edit", edit_category_path(category) %> | <%= link_to "Delete", category_path(category), method: :delete, data: { confirm: "Are you sure you want to delete #{category.title}" } %>
+          <td class="edit_delete_link_right"><%= link_to t(:edit), edit_category_path(category) %> | <%= link_to t(:delete), category_path(category), method: :delete, data: { confirm: "Are you sure you want to delete #{category.title}" } %>
         </tr>
       <%end %>
   </tbody>

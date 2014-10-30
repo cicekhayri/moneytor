@@ -1,29 +1,29 @@
 <%= render 'nav' %>
 
-<h3>Purchases</h3>
+<h3><%= t(:purchases) %></h3>
 
 <%= form_tag purchases_path, method: :get,:class => "form-inline" do %>
 
   <div class="form-group">
     <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "product name or company name" %>
   </div>
-  <%= submit_tag "Search", class:"btn btn-success" %>
+  <%= submit_tag t(:search), class:"btn btn-success" %>
 
 <% end %>
 
 <br>
-<p>Download:
+<p><%=t :download %>
   <%= link_to "CSV", purchases_path(format: "csv") %> |
   <%= link_to "Excel", purchases_path(format: "xls") %>
   </p>
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Receipt</th>
-      <th>You bought</th>
-      <th>Amount</th>
-      <th>When</th>
-      <th>Where</th>
+      <th><%= t(:receipt) %></th>
+      <th><%= t(:you_bought) %></th>
+      <th><%= t(:amount) %></th>
+      <th><%= t(:when) %></th>
+      <th><%= t(:where) %></th>
     </tr>
   </thead>
   <tbody>
@@ -59,7 +59,7 @@
       <td><%= number_to_currency(purchase.amount) %></td>
       <td><%= purchase.purchase_date %></td>
       <td><%= purchase.store_name %></td>
-      <td class="edit_delete_link_right"><%= link_to 'Edit', edit_purchase_path(purchase) %> | <%= link_to 'Delete',purchase_path(purchase), method: :delete, data: { confirm: "Are you sure you wan't to delete #{purchase.product}" } %></td>
+      <td class="edit_delete_link_right"><%= link_to t(:edit), edit_purchase_path(purchase) %> | <%= link_to t(:delete),purchase_path(purchase), method: :delete, data: { confirm: "Are you sure you wan't to delete #{purchase.product}" } %></td>
     </tr>
   <% end %>
   </tbody>

@@ -2,9 +2,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   
-  resources :users
-  resources :purchases
-  resources :categories
+
   resources :sessions, only: [:create]
 
   get 'admin_index', to: "admin#index", as: 'admin_index'
@@ -21,6 +19,9 @@ Rails.application.routes.draw do
   # config/routes.rb
   scope "(:locale)", locale: /en|sv/ do
     resources :welcome
+    resources :users
+    resources :purchases
+    resources :categories
   end
   get '/:locale' => 'welcome#index'
 end

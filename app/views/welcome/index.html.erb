@@ -57,14 +57,14 @@
 
 <% else %>
   <div class="jumbotron">
-    <h1>Where is your money going?</h1>
-    <p>Simple and flexible money tracker to help you monitor your daily spending and expenses.</p>
+    <h1><%= t(:where_is_your_money_going) %></h1>
+    <p><%= t(:simple) %></p>
   </div>
   
   <div class="row featurette">
     <div class="col-md-7">
-      <h2 class="featurette-heading">Track what you want</h2>
-      <p class="lead">Track you purchases by categories</p>
+      <h2 class="featurette-heading"><%= t(:track) %></h2>
+      <p class="lead"><%= t(:track_category) %></p>
     </div>
     <div class="col-md-5">
       <img class="featurette-image img-responsive" src="/assets/categories.png" alt="Generic placeholder image">
@@ -78,8 +78,8 @@
       <img class="featurette-image img-responsive" src="/assets/dashboard.png" alt="Generic placeholder image">
     </div>
     <div class="col-md-7">
-      <h2 class="featurette-heading">Take Control</h2>
-      <p class="lead">Watch your spending with simple to read bashboard</p>
+      <h2 class="featurette-heading"><%= t(:take_control) %></h2>
+      <p class="lead"><%= t(:take_control_watch) %></p>
     </div>
   </div>
   
@@ -87,11 +87,10 @@
 
   <div class="row featurette">
     <div class="col-md-7">
-      <h2 class="featurette-heading">Purchases</h2>
-      <p class="lead">All Your Purchases in one place<br>
-      Export to CSV or Excel<br>
-      Search by product name or Store name.
-      </p>
+      <h2 class="featurette-heading"><%= t(:purchases) %></h2>
+      <p class="lead"><%= t(:all_your_purchases) %><br>
+      <%= t(:export_to) %><br>
+      <%= t(:search_by) %>     </p>
     </div>
     <div class="col-md-5">
       <img class="featurette-image img-responsive" src="/assets/purchases.png" alt="Generic placeholder image">
@@ -106,8 +105,8 @@
       <img class="featurette-image img-responsive" src="/assets/receipt.png" alt="Generic placeholder image">
     </div>
     <div class="col-md-7">
-      <h2 class="featurette-heading">Receipt</h2>
-      <p class="lead">Upload your receipt</p>
+      <h2 class="featurette-heading"><%= t(:receipt) %></h2>
+      <p class="lead"><%= t(:upload_your_receipt) %></p>
     </div>
 
   </div>
@@ -117,8 +116,8 @@
   <div class="row featurette">
 
     <div class="col-md-7">
-      <h2 class="featurette-heading">Quick & Safe</h2>
-      <p class="lead">Creating account takes only a few seconds and we promise not to share you personal information.</p>
+      <h2 class="featurette-heading"><%= t(:quick) %> & <%= t(:safe) %></h2>
+      <p class="lead"><%= t(:quick_safe_message)%></p>
     </div>
 
     <div class="col-md-5">

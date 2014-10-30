@@ -20,15 +20,15 @@
           <li><%= link_to "Admin", admin_index_path %></li>
         <% end %>
         <% if current_user %>
-          <li><%= link_to "Your dashbord", root_path %></li>
-          <li><%= link_to "Purchases", purchases_path %></li>
-          <li><%= link_to "Categories", categories_path %></li>
-          <li><%= link_to "Profile", edit_user_path(current_user) %></li>
-          <li><%= link_to "Logout", logout_path %></li>
+          <li><%= link_to t(:your_dashboard), root_path %></li>
+          <li><%= link_to t(:purchases), purchases_path %></li>
+          <li><%= link_to t(:categories), categories_path %></li>
+          <li><%= link_to t(:profile), edit_user_path(current_user) %></li>
+          <li><%= link_to t(:logout), logout_path %></li>
         <% else %>
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Signup", signup_path %></li> 
-          <li><%= link_to "Login", login_path %></li>
+          <li><%= link_to t(:welcome_home), root_path %></li>
+          <li><%= link_to t(:signup_user), signup_path %></li> 
+          <li><%= link_to t(:login_user), login_path %></li>
         <% end %>
       </ul> 
 

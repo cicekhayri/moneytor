@@ -9,11 +9,11 @@
         </ul>
       <% end %>
       <div class="form-group">
-        <%= f.label :category %>
+        <%= f.label t(:category) %>
         <%= f.collection_select :category_id, Category.order(:title), :id, :title, {} %>
       </div>
       <div class="form-group">
-        <%= f.label :receipt %>
+        <%= f.label t(:receipt) %>
         <% if @purchase.receipt %>
           <div class="img_edit"><%= image_tag(@purchase.receipt.url) %></div>
         <% end %>
@@ -21,19 +21,19 @@
         <%= f.file_field :receipt %>
       </div>
       <div class="form-group">
-        <%= f.label :product %>
+        <%= f.label t(:product) %>
         <%= f.text_field :product, class: "form-control", placeholder: "Shoes" %>
       </div>
       <div class="form-group">
-        <%= f.label :purchase_date %>
+        <%= f.label t(:purchase_date) %>
         <%= f.date_field :purchase_date, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :amount %>
+        <%= f.label t(:amount) %>
         <%= f.text_field :amount, class: "form-control", placeholder: "10.00" %>
       </div>
       <div class="form-group">
-        <%= f.label :store_name %>
+        <%= f.label t(:store_name) %>
         <%= f.text_field :store_name, class: "form-control", placeholder: "Store name" %>
       </div>
       <%= f.submit class: "btn btn-success" %>

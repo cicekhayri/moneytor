@@ -39,7 +39,7 @@ sv:
     - januari
     - februari
     - mars
-    - april
+    - aprilnkk
     - maj
     - juni
     - juli
@@ -128,9 +128,9 @@ sv:
     select:
       prompt: Välj
     submit:
-      create: Skapa %{model}
-      submit: Spara %{model}
-      update: Ändra %{model}
+      create: Skapa
+      submit: Spara
+      update: Ändra
   number:
     currency:
       format:
@@ -195,3 +195,50 @@ sv:
   current_month_you_spent: "Den här månaden har du spenderat"
   last_month_spent: "Förra månaden spenderade du"
   spending_by_category: "Visa utgifterna per kategori" 
+  purchases: "Inköp"
+  logout: "Logga ut"
+  welcome_home: "Hem"
+  signup_user: "Registrera"
+  login_user: "Logga in"
+  download: "Exportera"
+  receipt: "Kvitto"
+  you_bought: "Du har köpt"
+  amount: "Summa"
+  when: "När"
+  where: "Var"
+  edit: "Redigera"
+  delete: "Radera"
+  search: 'Sök'
+  add_new_purchase: "Lägg till nya inköp"
+  product: "Produkt"
+  purchase_date: "Inköpsdatum"
+  store_name: "Butiksnamn"
+  category: "Kategori"
+  categories: "Kategorier"
+  purchase: "Inköp"
+  title: "Titel"
+  back: "Tillbaka"
+  add_new_category: "Lägg till ny kategori"
+  create_category: "Skapa Kategori"
+  create_purchase: "Skapa Inköp"
+  profile: "Profil"
+  password: "Lösenord"
+  password_confirmation: "Bekräftelse lösenord"
+  email: "Epost"
+  edit_your_profile: "Redigera din profilinformation"
+  where_is_your_money_going: "Vart går pengarna"
+  simple: "Enkelt och flexibelt pengar tracker som hjälper dig att övervaka dina dagliga utgifter och kostnader."
+  track: "Spåra vad du vill"
+  track_category: "Spåra dina inköp efter kategorier"
+  take_control: "Ta kontroll"
+  take_control_watch: "Titta på dina utgifter med enkelt instrumentpanel"
+  all_your_purchases: "Alla dina köp på ett ställe"
+  export_to: "Exportera till CSV eller Excel"
+  search_by: "Sök på produktnamn eller butiksnamn."
+  upload_your_receipt: "Ladda upp ditt kvitto"
+  quick: "Snabbt"
+  safe: "Säkert"
+  quick_safe_message: "Att skapa konto tar bara några sekunder och vi lovar att inte dela din personliga information."
+  sign_up_for: "Registrera dig"
+  
+
