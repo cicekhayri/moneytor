@@ -167,9 +167,10 @@ a img {
 .text-muted {
   color: #377dbd;
   padding: 15px;
-  margin-left: -18px;
+  margin-left: -8px;
   padding-top: 30px;
-  font-size: 50px;
+  font-size: 45px;
+  font-weight: bold;
 }
 
 .col-lg-4 img {
