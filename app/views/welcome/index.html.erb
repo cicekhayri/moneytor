@@ -3,16 +3,18 @@
 
   <%= form_tag root_path, :method => 'post' do %>
     <div class="month_name">
-    <div class="none">
-      <div class="previous"><%= link_to l(@beginning_current_month.prev_month, format: "%B"), previous_path(:month => @beginning_previous_month.strftime("%B"), :year => @beginning_previous_month) %></div>
+      <div class="none">
+        <div class="previous"><%= link_to l(@beginning_previous_month, format: "%B"), :month => (@months.beginning_of_month-1).strftime("%Y-%m-01") %></div>
+      </div>
+      <div class="flex1">
+        <h1> <%= @months.strftime("%B %Y") %></h1>
+      </div>
+      <div class="flex1">
+        <div class="next"><%= link_to l(@beginning_next_month, format: "%B"), :month => (@months.end_of_month+1).strftime("%Y-%m-01") %></div>
+      </div>
     </div>
-    <div class="flex1">
-      <h1><%= l(@beginning_current_month, format: "%B")%> <%= @current_year %></h1>
-    </div>
-    <div class="flex1">
-      <div class="next"><%= link_to l(@beginning_current_month.next_month, format: "%B"), next_path( :month => @beginning_next_month.strftime("%B")) %></div>
-    </div></div>
-  <% end %>
+
+   <% end %>
   <div class="row">
     <div class="col-md-8">
       <h3><%= t(:what_you_spent) %></h3>
@@ -36,11 +38,11 @@
         <%= form_tag root_path, method: :get, :class => "form-inline" do %>
           <div class="category_name">
             <div class="category_center">
-            <%= select_tag :category_id, options_from_collection_for_select(current_user.categories.all, "id", "title") %>
+              <%= select_tag :category_id, options_from_collection_for_select(current_user.categories.all, "id", "title") %>
            
-            <%= submit_tag "Show", class:"btn btn-success btn-xs"%>
+              <%= submit_tag "Show", class:"btn btn-success btn-xs"%>
           
-          </div>
+            </div>
           </div>
         <% end %>
       </div>
