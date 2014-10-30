@@ -236,8 +236,7 @@ sv:
   export_to: "Exportera till CSV eller Excel"
   search_by: "Sök på produktnamn eller butiksnamn."
   upload_your_receipt: "Ladda upp ditt kvitto"
-  quick: "Snabbt"
-  safe: "Säkert"
+  quick_safe: "Snabbt & Säkert"
   quick_safe_message: "Att skapa konto tar bara några sekunder och vi lovar att inte dela din personliga information."
   sign_up_for: "Registrera dig"
   

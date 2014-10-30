@@ -17,7 +17,7 @@ Rails.application.routes.draw do
  
 
   # config/routes.rb
-  scope "(:locale)", locale: /en|sv/ do
+  scope "(:locale)", locale: /en|sv|es/ do
     resources :welcome
     resources :users
     resources :purchases
