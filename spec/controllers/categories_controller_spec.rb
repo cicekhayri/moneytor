@@ -99,7 +99,7 @@ RSpec.describe CategoriesController, :type => :controller do
 
     it "should destroy the category" do
       delete :destroy, id: @category.id
-      expect(response).to redirect_to(root_url)
+      expect(response).to redirect_to(categories_path)
     end
   end
 end

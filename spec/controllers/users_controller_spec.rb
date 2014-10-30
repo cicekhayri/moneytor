@@ -35,7 +35,7 @@ RSpec.describe UsersController, :type => :controller do
     it "should have status 200" do
       get :edit, id: @user.id
 
-      expect(response.status).to render_template :edit
+      expect(response.status).to render_template("edit")
     end
   end
 

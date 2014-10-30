@@ -88,4 +88,16 @@ Rails.application.configure do
     :authentication => :plain,
     :enable_starttls_auto => true
   }
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_protocol => 'http',
+    :s3_credentials => {
+      :bucket => 'moneytor',
+      :access_key_id => 'AKIAIPDTCNWG2ZR6ZCPA',
+      :secret_access_key => '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'
+    },
+    url: ":s3_domain_url",
+    path: "/:class/:attachment/:id_partition/:style/:filename"
+  }
 end
