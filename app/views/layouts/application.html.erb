@@ -23,8 +23,17 @@
           <li><%= link_to t(:your_dashboard), root_path %></li>
           <li><%= link_to t(:purchases), purchases_path %></li>
           <li><%= link_to t(:categories), categories_path %></li>
-          <li><%= link_to t(:profile), edit_user_path(current_user) %></li>
-          <li><%= link_to t(:logout), logout_path %></li>
+          <li><div class="btn-group">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+              <%= @current_user.email %>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+              <li><%= link_to t(:profile), edit_user_path(current_user) %></li>
+              <li><%= link_to t(:logout), logout_path %></li>
+            </ul>
+            </div>
+          </li>
         <% else %>
           <li><%= link_to t(:welcome_home), root_path %></li>
           <li><%= link_to t(:signup_user), signup_path %></li> 
@@ -33,7 +42,7 @@
       </ul> 
 
       <h1 class="text-muted">
-        Moneytor
+        <%= link_to "Moneytor", root_path %>
       </h1>
   </div>
   </div>
@@ -50,6 +59,7 @@
         <p class="muted credit">Built by <a href="http://hoshilab.com">Hayri Cicek</a> | Get the code <a href="https://github.com/cicekhayri/moneytor">Github</a></p>
       </div>
     </div>
+    <br>
 
 </body>
 </html>

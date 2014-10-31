@@ -62,7 +62,7 @@ a img {
 .month_name {
   display: flex; /* or inline-flex */
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: center;
   margin-top: 30px;
   margin-bottom: 30px;
 }
@@ -85,60 +85,59 @@ a img {
   text-align: center;
 }
 
-.next a {
-  background-color: #5cb85c !important;
-  border-color:#4cae4c !important;
-  color: #fff !important;
-  padding: 10px;
-  border-radius: 3px;
-}
 
 .category_center {
 }
 
 
 .none {
+  order: 1
 }
 .flex1 {
+  order: 2;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 .flex2 {
+  order: 3
 }
 
 .flex1 h2 {
-  margin-top: -12px;
+  margin-top: -8px;
   text-align: left;
   font-weight: bold;
 }
 
 .next a {
-  background-color: #5cb85c !important;
+  background-color: #CAE2ED !important;
   border-color:#4cae4c !important;
-  color: #fff !important;
+  color: #333 !important;
   padding: 10px;
   border-radius: 3px;
 }
 
 .previous a {
-  background-color: #5cb85c !important;
+  background-color: #CAE2ED !important;
   border-color:#4cae4c !important;
-  color: #fff !important;
+  color: #333 !important;
   padding: 10px;
   border-radius: 3px;
 }
 
 .next a:hover {
   color:#fff;
-  background-color:#4A993C !important;
+  background-color:#9BBECF !important;
   border-color:#269abc !important;
   text-decoration: none;
 }
 
 .previous a:hover {
   color:#fff;
-  background-color:#4A993C !important;
+  background-color:#9BBECF !important;
   border-color:#269abc !important;
   text-decoration: none;
 }
+
 .edit_delete_link_right {
   text-align: right;
 }
@@ -146,6 +145,7 @@ a img {
   border:0px solid #ccc;
   padding:20px;
   background-color: #CAE2ED;
+  margin-top: 70px;
 }
 .sidebar h1 {
   text-align: center;
@@ -247,6 +247,7 @@ ul {
 -------------------------------------------------- */
 .col-md-8 h3 {
   margin-top: -3px;
+  margin-bottom: 30px;
 }
 
 .container {
@@ -305,4 +306,29 @@ h1 a:hover {
   background-color:#377dbd !important;
   border-color:#269abc !important;
 }
+
+.btn-default {
+  border-color:#269abc !important;
+  background-color: #428ed3 !important;
+  color: #fff;
+  padding: 9px;
+}
+
+.dropdown-menu a {
+  color: #000 !important;
+  background-color: #fff;
+}
+.dropdown-menu li a:hover {
+  color: #fff !important;
+  background-color: #aaa;
+}
+
+.dropdown-menu a:active {
+  color: #fff;
+}
+
+.btn-group ul {
+  background-color: #fff !important;
+}
+
 

@@ -11,7 +11,7 @@ class Purchase < ActiveRecord::Base
   scope :for_month, lambda { |month| between(month.beginning_of_month, month.end_of_month) }
   scope :between, lambda { |beginning, finish| where("purchase_date BETWEEN ? AND ?", beginning, finish) }
   scope :for_category, lambda { |category| where(category_id: category) }
-  
+
   self.per_page = 30
 
   def self.to_csv(options = {})
