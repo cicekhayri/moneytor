@@ -46,7 +46,6 @@ class PurchasesController < ApplicationController
   private
   def get_purchase
     @purchase = Purchase.find(params[:id]) 
-    
   end
 
   def purchase_params
