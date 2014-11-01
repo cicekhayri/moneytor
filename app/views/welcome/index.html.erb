@@ -3,13 +3,13 @@
   <%= form_tag root_path, :method => 'post' do %>
     <div class="month_name">
       <div class="none">
-        <div class="previous"><%= link_to l(@beginning_previous_month, format: "%B"), :month => (@months.beginning_of_month-1).strftime("%Y-%m-01") %></div>
+        <div class="previous"><%= link_to "←", :month => (@months.beginning_of_month-1).strftime("%Y-%m-01") %></div>
       </div>
       <div class="flex1">
         <h2> <%= l(@months, format: "%B, %Y") %></h2>
       </div>
       <div class="flex2">
-        <div class="next"><%= link_to l(@beginning_next_month, format: "%B"), :month => (@months.end_of_month+1).strftime("%Y-%m-01") %></div>
+        <div class="next"><%= link_to "→", :month => (@months.end_of_month+1).strftime("%Y-%m-01") %></div>
       </div>
     </div>
 
