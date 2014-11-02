@@ -11,8 +11,7 @@ http://moneytor.herokuapp.com
 git clone https://github.com/cicekhayri/moneytor.git
 
 * $ bundle install
-* $ rake db:create
-* $ rake db:migrate
+* $ rake db:setup
 * $ rails s
 
 ## Credits
