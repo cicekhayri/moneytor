@@ -56,6 +56,8 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     groupdate (2.3.0)
       activesupport (>= 3)
     hike (1.2.3)
@@ -179,6 +181,7 @@ DEPENDENCIES
   chartkick
   coffee-rails (~> 4.0.0)
   factory_girl_rails
+  faker
   groupdate
   jbuilder (~> 2.0)
   jquery-rails
