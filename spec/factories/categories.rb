@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :category do
     title "category1"
+    association :user
   end
 end

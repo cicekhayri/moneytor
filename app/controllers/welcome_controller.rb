@@ -10,7 +10,8 @@ class WelcomeController < ApplicationController
 
     if current_user
       
-      category = current_user.categories.find(params[:category_id])  if params[:category_id]
+      category = current_user.categories.find_by_id(params[:category_id]) || current_user.categories.first
+      p category
       @get_current_month_purchases = current_user.purchases.for_month(@beginning_current_month).sum(:amount)
       @get_previous_month_purchases = current_user.purchases.for_month(@beginning_previous_month).sum(:amount)
       @pie_chart_current_month = current_user.purchases.group(:product).for_month(@beginning_current_month).sum(:amount)

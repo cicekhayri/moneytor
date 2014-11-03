@@ -31,7 +31,11 @@
       </div>
       <br>
     </div>
-    <div class="col-md-6 col-md-offset-3">
+
+    <div class="col-md-12">
+      <%= column_chart @column_chart_all_months %>
+    </div>
+        <div class="col-md-6 col-md-offset-3">
       <h4><%= t(:spending_by_category) %></h4>
         
         <%= form_tag root_path, method: :get, :class => "form-inline" do %>
@@ -47,16 +51,12 @@
           </div>
         <% end %>
       </div>
-    <div class="col-md-12">
-      <% if params[:category_id] %>
-        <%= column_chart @amount_by_category %>
-      <% else %>
-        <%= column_chart @column_chart_all_months %>
-      <% end %>
-      <br><br>
-    </div>
   </div>
-
+    <div class="col-md-12">
+      <%= column_chart @amount_by_category %>
+      <br><br>
+    <br><br>
+    </div>
 <% else %>
   <div class="jumbotron">
     <h1><%= t(:where_is_your_money_going) %></h1>

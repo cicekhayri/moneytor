@@ -10,7 +10,7 @@
       <% end %>
       <div class="form-group">
         <%= f.label t(:category) %>
-        <%=  f.select :category_id, options_from_collection_for_select(Category.where(user_id: current_user.id), "id", "title") %>
+        <%=  f.select :category_id, options_from_collection_for_select(current_user.categories, "id", "title") %>
       </div>
       <div class="form-group">
         <%= f.label t(:receipt) %>

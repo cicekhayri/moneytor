@@ -6,6 +6,8 @@ class Purchase < ActiveRecord::Base
   validates_attachment_content_type :receipt, :content_type => /\Aimage\/.*\Z/
   
   validates :product, presence: true
+  validates :user, presence: true
+  validate :matching_user_with_category
 
   scope :search, lambda { |query| where("lower(product) LIKE ? OR lower(store_name) LIKE ?", "%#{query.downcase}%", "%#{query.downcase}%") }
   scope :for_month, lambda { |month| between(month.beginning_of_month, month.end_of_month) }
@@ -23,4 +25,13 @@ class Purchase < ActiveRecord::Base
     end
   end
 
+  private
+
+  def matching_user_with_category
+    return unless category.present?
+
+    unless user == category.user
+      errors.add(:category, 'user should be the same as the purchase')
+    end
+  end
 end
