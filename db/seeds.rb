@@ -14,7 +14,7 @@ Category.delete_all
 Purchase.delete_all
 
 ActiveRecord::Base.transaction do
-  user = User.create(email: 'hayri@test.com', password: 'test232A', password_confirmation: 'test232A')
+  user = User.create(email: 'moneytor@test.com', password: 'moneytor', password_confirmation: 'moneytor')
 
   user.categories.create title: 'Car'
   user.categories.create title: 'Clothers & Shoes'

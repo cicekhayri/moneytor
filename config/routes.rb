@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   get 'login', to: "sessions#new"
   get 'logout', to: "sessions#destroy" 
   get 'signup', to: "users#new", as: "signup"
- 
+
+  put 'spending', to: 'users#spending_target'
 
   # config/routes.rb
   scope "(:locale)", locale: /en|sv|es/ do
