@@ -31,6 +31,10 @@ body {
   background-color: #FCFBFA;
 }
 
+.cat_h4 {
+  text-align: center;
+}
+
 ul li {
   background-color:#fff !important;
   color:#000;

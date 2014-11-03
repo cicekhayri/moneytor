@@ -15,8 +15,8 @@ class WelcomeController < ApplicationController
       @get_current_month_purchases = current_user.purchases.for_month(@beginning_current_month).sum(:amount)
       @get_previous_month_purchases = current_user.purchases.for_month(@beginning_previous_month).sum(:amount)
       @pie_chart_current_month = current_user.purchases.group(:product).for_month(@beginning_current_month).sum(:amount)
-      @column_chart_all_months = current_user.purchases.group_by_month(:purchase_date,format: "%B").sum(:amount)
-      
+      @pie_chart_by_category = current_user.purchases.for_category(category).group(:product).for_month(@beginning_current_month).sum(:amount)
+      @column_chart_all_months = current_user.purchases.group_by_month(:purchase_date,format: "%B").sum(:amount) 
       @amount_by_category = current_user.purchases.for_category(category).group(:product).sum(:amount)
     end
   end

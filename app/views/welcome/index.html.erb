@@ -17,8 +17,27 @@
 
   <div class="row">
     <div class="col-md-8">
+
       <h3><%= t(:what_you_spent) %></h3>
-      <%= pie_chart @pie_chart_current_month %>
+            <div class="cat_h4"><h4><%= t(:spending_by_category) %></h4></div>
+      <%= form_tag root_path, method: :get, :class => "form-inline" do %>
+          <div class="category_name">
+            <div class="category_center">
+              <div class="form-group">
+              
+                <%= select_tag :category_id, options_from_collection_for_select(current_user.categories.all, "id", "title") %>
+                </div>
+              <%= submit_tag "Show", class:"btn btn-success btn-xs"%>
+          
+            </div>
+          </div>
+        <% end %>
+      <% if params[:category_id] %>
+
+      <%= pie_chart @pie_chart_by_category %>
+    <% else %>
+        <%= pie_chart @pie_chart_current_month %>
+      <% end %>
     </div>
     <div class="col-md-4">
       <div class="sidebar">
@@ -39,18 +58,7 @@
         <div class="col-md-6 col-md-offset-3">
       <h4><%= t(:spending_by_category) %></h4>
         
-        <%= form_tag root_path, method: :get, :class => "form-inline" do %>
-          <div class="category_name">
-            <div class="category_center">
-              <div class="form-group">
-              
-                <%= select_tag :category_id, options_from_collection_for_select(current_user.categories.all, "id", "title") %>
-                </div>
-              <%= submit_tag "Show", class:"btn btn-success btn-xs"%>
-          
-            </div>
-          </div>
-        <% end %>
+      <br><br>
       </div>
   </div>
     <div class="col-md-12">
