@@ -2,7 +2,14 @@ class CategoriesController < ApplicationController
   before_filter :get_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @categories = Category.paginate(:page => params[:page]).order(title: :asc).where(user_id: current_user.id)
+    @categories = current_user.categories
+    @categories = @categories.order(title: :asc)
+    @categories = @categories.paginate(page: params[:page])
+  end
+
+  def show
+    @purchases = @category.purchases
+    @purchases = @purchases.paginate(page: params[:page])
   end
 
   def new

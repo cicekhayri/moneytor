@@ -2,7 +2,7 @@
 
 <table class="table table-striped">
   <tbody>
-  <% @category.purchases.each do |purchase| %>
+  <% @purchases.each do |purchase| %>
     <tr>
       <td><%= purchase.product %></td>
       <td><%= number_to_currency(purchase.amount) %></td>
@@ -14,3 +14,6 @@
   </tbody>
 </table>
 
+<%= will_paginate(@purchases) %>
+
+<br><br><br><br>

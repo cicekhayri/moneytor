@@ -6,30 +6,39 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
+beginning = Time.now
 require 'faker'
 
-User.create(email: 'hayri@test.com', password: 'test232A', password_confirmation: 'test232A')
+User.delete_all
+Category.delete_all
+Purchase.delete_all
 
-Category.create(user_id: 1, title: "Car")
-Category.create(user_id: 1, title: "Clothes & Shoes")
-Category.create(user_id: 1, title: "Eating Out & Coffee")
-Category.create(user_id: 1, title: "Education")
-Category.create(user_id: 1, title: "Entertainment")
-Category.create(user_id: 1, title: "Food/Groceries")
-Category.create(user_id: 1, title: "Gas/Transportation")
-Category.create(user_id: 1, title: "Holiday")
-Category.create(user_id: 1, title: "Home")
-Category.create(user_id: 1, title: "Insurance")
-Category.create(user_id: 1, title: "Kids")
-Category.create(user_id: 1, title: "Medical")
-Category.create(user_id: 1, title: "Taxes")
-Category.create(user_id: 1, title: "Rent")
-Category.create(user_id: 1, title: "Utilities/Phone/TV/Internet")
+ActiveRecord::Base.transaction do
+  user = User.create(email: 'hayri@test.com', password: 'test232A', password_confirmation: 'test232A')
 
-1000.times do 
-  Purchase.create(user_id: 1, category_id: rand(1..14), product: Faker::Commerce.product_name, store_name: Faker::Company.name, purchase_date: Date.today - Faker::Number.number(3).to_i.days , amount: Faker::Commerce.price)
+  user.categories.create title: 'Car'
+  user.categories.create title: 'Clothers & Shoes'
+  user.categories.create title: 'Eating out & Coffe'
+  user.categories.create title: 'Education'
+  user.categories.create title: 'Entertainment'
+  user.categories.create title: 'Food/Groceries'
+  user.categories.create title: 'Gas/Transportation'
+  user.categories.create title: 'Holiday'
+  user.categories.create title: 'Home'
+  user.categories.create title: 'Insurance'
+  user.categories.create title: 'Kids'
+  user.categories.create title: 'Medical'
+  user.categories.create title: 'Taxes'
+  user.categories.create title: 'Rent'
+
+  1000.times do 
+    user.purchases.create(category: Category.all.sample, product: Faker::Commerce.product_name, store_name: Faker::Company.name, purchase_date: Date.today - Faker::Number.number(3).to_i.days , amount: Faker::Commerce.price)
+  end
+
+  50.times do
+    user.purchases.create(category: Category.all.sample, product: Faker::Commerce.product_name, store_name: Faker::Company.name, purchase_date: Date.today, amount: Faker::Commerce.price)
+  end
 end
 
-50.times do
-  Purchase.create(user_id: 1, category_id: rand(1..14), product: Faker::Commerce.product_name, store_name: Faker::Company.name, purchase_date: Date.today , amount: Faker::Commerce.price)
-end
+alltime = Time.now - beginning
+puts "All time: #{alltime}"
