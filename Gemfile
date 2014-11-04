@@ -41,6 +41,7 @@ gem 'groupdate'
 gem 'will_paginate', '~> 3.0'
 gem "paperclip", "~> 4.2"
 gem 'aws-sdk', '~> 1.5.7'
+gem 'faker'
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -52,7 +53,6 @@ gem 'aws-sdk', '~> 1.5.7'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'factory_girl_rails'
-  gem 'faker'
 end
 
 
