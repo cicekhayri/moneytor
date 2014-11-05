@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
       new_user = FactoryGirl.build(:user, email: "user1@example.com")
       older_user = FactoryGirl.create(:user)
       new_user.email = older_user.email
-      new_user.should_not be_valid
+      expect(new_user).not_to be_valid
     end
 
     it "should presence valid password" do

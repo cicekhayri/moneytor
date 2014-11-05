@@ -35,6 +35,11 @@ body {
   text-align: center;
 }
 
+.col-md-8 h3 {
+  text-align: right;
+  margin-right: -50px;
+}
+
 ul li {
   background-color:#fff !important;
   color:#000;

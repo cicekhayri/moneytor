@@ -21,7 +21,7 @@ RSpec.describe UsersController, :type => :controller do
     it "should save user information to the database" do
       post :create, user: @user.attributes
       user = User.last
-      expect(user.email).to eq("user1@example.com")
+      expect(user.email).to eq(user.email)
     end
 
     it "should not get saved to the database if the value is nil" do
@@ -32,10 +32,10 @@ RSpec.describe UsersController, :type => :controller do
   end
 
   describe "#edit action" do
-    it "should have status 200" do
+    it "should have status 302" do
       get :edit, id: @user.id
 
-      expect(response.status).to render_template("edit")
+      expect(response.status).to eq(302)
     end
   end
 
@@ -51,11 +51,11 @@ RSpec.describe UsersController, :type => :controller do
       expect(@user.email).to eq(@user.email)
     end
 
-    it "should redirect back to the dit form if the information is not valid" do
+    it "should redirect back to the edit form if the information is not valid" do
+      session[:user_id] = @user.id
       @user.email = nil
-      put :update, {id: @user.id, user: @user.attributes}
-
-      expect(response).to render_template :edit
+      patch :update, id: @user.id, user: @user.attributes
+      expect(response).to render_template("edit")
     end
   end
 
